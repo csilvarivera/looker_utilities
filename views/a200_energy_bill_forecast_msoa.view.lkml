@@ -31,7 +31,12 @@ view: a200_energy_bill_forecast_msoa {
     type: number
     sql: ${age_16_64}/${all_ages} ;;
     html: {{msoa11_nm._rendered_value }};;
+  }
 
+  measure: ldn_avg_energy_bill_std_from_mean {
+    type: number
+    sql: ((${avg_annual_bill_energy}-2568.82)/441.026) ;;
+    html: {{msoa11_nm._rendered_value }};;
   }
 
   measure: all_ages {
