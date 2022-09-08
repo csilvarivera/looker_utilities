@@ -114,6 +114,7 @@ view: a200_energy_bill_forecast_rgn {
   dimension: year {
     type: number
     sql: ${TABLE}.YEAR ;;
+    value_format_name: id
   }
 
   measure: count {
