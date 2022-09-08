@@ -16,44 +16,94 @@ view: a200_energy_bill_forecast_msoa {
     sql: ${TABLE}.AGE_0_15 ;;
   }
 
-  dimension: age_16_64 {
-    type: number
+  measure: age_16_64 {
+    type: sum
     sql: ${TABLE}.AGE_16_64 ;;
   }
 
-  dimension: age_65_above {
-    type: number
+  measure: age_65_above {
+    type: sum
     sql: ${TABLE}.AGE_65_ABOVE ;;
   }
 
-  dimension: all_ages {
-    type: number
+  measure: all_ages {
+    type: sum
     sql: ${TABLE}.ALL_AGES ;;
   }
 
-  dimension: avg_annual_bill_elec {
-    type: number
+  measure: avg_annual_bill_elec {
+    type: average
     sql: ${TABLE}.AVG_ANNUAL_BILL_ELEC ;;
+    value_format: "[$£-en-GB]#,##0"
+
   }
 
-  dimension: avg_annual_bill_energy {
-    type: number
+  measure: avg_annual_bill_energy {
+    type: average
     sql: ${TABLE}.AVG_ANNUAL_BILL_ENERGY ;;
+    value_format: "[$£-en-GB]#,##0"
+
+
   }
 
-  dimension: avg_annual_bill_gas {
-    type: number
+  measure: avg_annual_bill_gas {
+    type: average
     sql: ${TABLE}.AVG_ANNUAL_BILL_GAS ;;
+    value_format: "[$£-en-GB]#,##0"
+
   }
 
-  dimension: households_in_poverty {
-    type: number
+  measure: households_in_poverty {
+    type: sum
     sql: ${TABLE}.HOUSEHOLDS_IN_POVERTY ;;
+
   }
 
-  dimension: income_after_housing_energy {
-    type: number
+  measure: income_after_housing_energy {
+    type: average
     sql: ${TABLE}.INCOME_AFTER_HOUSING_ENERGY ;;
+    value_format: "[$£-en-GB]#,##0"
+  }
+
+  measure: net_annual_income_after_housing_costs {
+    type: average
+    sql: ${TABLE}.NET_ANNUAL_INCOME_AFTER_HOUSING_COSTS ;;
+    value_format: "[$£-en-GB]#,##0"
+
+  }
+
+  measure: number_of_households {
+    type: sum
+    sql: ${TABLE}.NUMBER_OF_HOUSEHOLDS ;;
+  }
+
+  # A measure is a field that uses a SQL aggregate function. Here are defined sum and average
+  # measures for this dimension, but you can also add measures of many different aggregates.
+  # Click on the type parameter to see all the options in the Quick Help panel on the right.
+
+  # measure: total_number_of_households {
+  #   type: sum
+  #   sql: ${number_of_households} ;;
+  # }
+
+  # measure: average_number_of_households {
+  #   type: average
+  #   sql: ${number_of_households} ;;
+  # }
+
+  measure: rating_agg_all {
+    type: sum
+    sql: ${TABLE}.RATING_AGG_ALL ;;
+  }
+
+  measure: rating_agg_good {
+    type: sum
+    sql: ${TABLE}.RATING_AGG_GOOD ;;
+  }
+
+  measure: rating_agg_poor {
+    type: sum
+    sql: ${TABLE}.RATING_AGG_POOR ;;
   }
 
   dimension: msoa11_cd {
@@ -64,45 +114,6 @@ view: a200_energy_bill_forecast_msoa {
   dimension: msoa11_nm {
     type: string
     sql: ${TABLE}.MSOA11NM ;;
-  }
-
-  dimension: net_annual_income_after_housing_costs {
-    type: number
-    sql: ${TABLE}.NET_ANNUAL_INCOME_AFTER_HOUSING_COSTS ;;
-  }
-
-  dimension: number_of_households {
-    type: number
-    sql: ${TABLE}.NUMBER_OF_HOUSEHOLDS ;;
-  }
-
-  # A measure is a field that uses a SQL aggregate function. Here are defined sum and average
-  # measures for this dimension, but you can also add measures of many different aggregates.
-  # Click on the type parameter to see all the options in the Quick Help panel on the right.
-
-  measure: total_number_of_households {
-    type: sum
-    sql: ${number_of_households} ;;
-  }
-
-  measure: average_number_of_households {
-    type: average
-    sql: ${number_of_households} ;;
-  }
-
-  dimension: rating_agg_all {
-    type: number
-    sql: ${TABLE}.RATING_AGG_ALL ;;
-  }
-
-  dimension: rating_agg_good {
-    type: number
-    sql: ${TABLE}.RATING_AGG_GOOD ;;
-  }
-
-  dimension: rating_agg_poor {
-    type: number
-    sql: ${TABLE}.RATING_AGG_POOR ;;
   }
 
   dimension: rgn11_cd {
