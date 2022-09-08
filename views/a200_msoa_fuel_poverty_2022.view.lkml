@@ -52,6 +52,13 @@ view: a200_msoa_fuel_poverty_2022 {
     sql: ${number_of_households} ;;
   }
 
+  measure: total_households_in_poverty {
+    type: sum
+    sql: ${households_in_poverty} ;;
+  }
+
+
+
   dimension: percent_fuel_poor {
     type: number
     sql: ${TABLE}.PERCENT_FUEL_POOR ;;
