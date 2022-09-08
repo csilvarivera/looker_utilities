@@ -51,7 +51,11 @@ explore: a200_msoa_fuel_poverty_2022{
   }
 }
 
-# explore: a100_net_income_ahc_2018 {}
+explore: derived_msoa_fuel_poverty {}
+
+explore: a200_energy_bill_forecast_msoa {}
+
+explore: a200_energy_bill_forecast_rgn {}
 
 # explore: a100_pcd_lsoa_map {}
 
