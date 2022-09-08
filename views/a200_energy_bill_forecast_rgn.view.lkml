@@ -11,6 +11,11 @@ view: a200_energy_bill_forecast_rgn {
   # A dimension is a groupable field that can be used to filter query results.
   # This dimension will be called "Age 16 64" in Explore.
 
+  measure: age_0_15 {
+    type: sum
+    sql: ${TABLE}.AGE_0_15 ;;
+  }
+
   measure: age_16_64 {
     type: sum
     sql: ${TABLE}.AGE_16_64 ;;

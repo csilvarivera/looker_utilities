@@ -11,8 +11,8 @@ view: a200_energy_bill_forecast_msoa {
   # A dimension is a groupable field that can be used to filter query results.
   # This dimension will be called "Age 0 15" in Explore.
 
-  dimension: age_0_15 {
-    type: number
+  measure: age_0_15 {
+    type: sum
     sql: ${TABLE}.AGE_0_15 ;;
   }
 
