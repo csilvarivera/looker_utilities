@@ -24,6 +24,14 @@ view: a200_energy_bill_forecast_msoa {
   measure: age_65_above {
     type: sum
     sql: ${TABLE}.AGE_65_ABOVE ;;
+
+  }
+
+  measure: pct_pop_16_65 {
+    type: number
+    sql: ${age_16_64}/${all_ages} ;;
+    html: {{msoa11_nm._rendered_value }};;
+
   }
 
   measure: all_ages {
