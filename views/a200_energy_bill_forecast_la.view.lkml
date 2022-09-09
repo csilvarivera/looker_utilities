@@ -39,10 +39,18 @@ view: a200_energy_bill_forecast_la {
     html: {{ladnm._rendered_value }};;
   }
 
+  measure: ldn_avg_income_after_housing_std_from_mean {
+    type: number
+    sql: ((${net_annual_income_after_housing_costs}-31751)/6073) ;;
+    # html: {{ladnm._rendered_value }};;
+    value_format: "0.##"
+  }
+
   measure: pct_poor_epc_rating {
     type: number
     sql: ${rating_agg_poor}/${rating_agg_all} ;;
     html: {{ladnm._rendered_value }};;
+    value_format: "0%"
   }
 
   measure: all_ages {
@@ -71,6 +79,25 @@ view: a200_energy_bill_forecast_la {
     value_format: "[$£-en-GB]#,##0"
 
   }
+
+  measure: gas_pct_energy_bill {
+    type: number
+    sql: ${avg_annual_bill_gas}/${avg_annual_bill_energy} ;;
+    value_format: "0%"
+  }
+
+  measure: elec_pct_energy_bill {
+    type: number
+    sql: ${avg_annual_bill_elec}/${avg_annual_bill_energy} ;;
+    value_format: "0%"
+  }
+
+  measure: avg_household_size {
+    type: number
+    sql: ${all_ages}/${number_of_households} ;;
+    value_format: "0.##"
+  }
+
 
   measure: households_in_poverty {
     type: sum
