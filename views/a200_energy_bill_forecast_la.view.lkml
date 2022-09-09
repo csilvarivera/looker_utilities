@@ -41,7 +41,7 @@ view: a200_energy_bill_forecast_la {
 
   measure: ldn_avg_income_after_housing_std_from_mean {
     type: number
-    sql: ((${net_annual_income_after_housing_costs}-31751)/6073) ;;
+    sql: ((${net_annual_income_after_housing_costs}-29181.522)/5937.99) ;;
     # html: {{ladnm._rendered_value }};;
     value_format: "0.##"
   }
