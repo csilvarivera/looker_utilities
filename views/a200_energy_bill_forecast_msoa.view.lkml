@@ -133,6 +133,13 @@ view: a200_energy_bill_forecast_msoa {
     sql: ${TABLE}.RATING_AGG_POOR ;;
   }
 
+  measure: pct_poor_epc_rating {
+    type: number
+    sql: ${rating_agg_poor}/${rating_agg_all} ;;
+    html: {{ladnm._rendered_value }};;
+    value_format: "0%"
+  }
+
   dimension: rgn11_cd {
     type: string
     sql: ${TABLE}.RGN11CD ;;
