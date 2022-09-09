@@ -39,6 +39,12 @@ view: a200_energy_bill_forecast_la {
     html: {{msoa11_nm._rendered_value }};;
   }
 
+  measure: pct_poor_epc_rating {
+    type: number
+    sql: ${rating_agg_poor}/${rating_agg_all} ;;
+    html: {{msoa11_nm._rendered_value }};;
+  }
+
   measure: all_ages {
     type: sum
     sql: ${TABLE}.ALL_AGES ;;
