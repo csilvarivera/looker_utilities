@@ -46,6 +46,13 @@ view: a200_energy_bill_forecast_rgn {
 
   }
 
+  measure: pct_poor_epc_rating {
+    type: number
+    sql: ${rating_agg_poor}/${rating_agg_all} ;;
+    value_format: "0%"
+  }
+
+
   measure: avg_annual_bill_gas {
     type: average
     sql: ${TABLE}.AVG_ANNUAL_BILL_GAS ;;
