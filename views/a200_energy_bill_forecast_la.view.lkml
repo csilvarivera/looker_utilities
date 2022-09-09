@@ -1,15 +1,15 @@
-# The name of this view in Looker is "A200 Energy Bill Forecast Msoa"
-view: a200_energy_bill_forecast_msoa {
+# The name of this view in Looker is "A200 Energy Bill Forecast La"
+view: a200_energy_bill_forecast_la {
   # The sql_table_name parameter indicates the underlying database table
   # to be used for all fields in this view.
-  sql_table_name: `utilitieshub-demo-sandbox.utilitieshubdataset.a200_energy_bill_forecast_msoa`
+  sql_table_name: `utilitieshub-demo-sandbox.utilitieshubdataset.a200_energy_bill_forecast_la`
     ;;
   # No primary key is defined for this view. In order to join this view in an Explore,
   # define primary_key: yes on a dimension that has no repeated values.
 
   # Here's what a typical dimension looks like in LookML.
   # A dimension is a groupable field that can be used to filter query results.
-  # This dimension will be called "Age 0 15" in Explore.
+  # This dimension will be called "Age 16 64" in Explore.
 
   measure: age_0_15 {
     type: sum
