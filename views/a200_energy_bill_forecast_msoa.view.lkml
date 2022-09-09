@@ -36,7 +36,7 @@ view: a200_energy_bill_forecast_msoa {
   measure: ldn_avg_energy_bill_std_from_mean {
     type: number
     sql: ((${avg_annual_bill_energy}-2568.82)/441.026) ;;
-    html: {{ladnm._rendered_value }};;
+    html: {{msoa11_nm._rendered_value }};;
 
   }
 
@@ -136,7 +136,7 @@ view: a200_energy_bill_forecast_msoa {
   measure: pct_poor_epc_rating {
     type: number
     sql: ${rating_agg_poor}/${rating_agg_all} ;;
-    html: {{ladnm._rendered_value }};;
+    html: {{msoa11_nm._rendered_value }};;
     value_format: "0%"
   }
 
