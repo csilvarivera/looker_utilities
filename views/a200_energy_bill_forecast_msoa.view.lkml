@@ -119,16 +119,6 @@ view: a200_energy_bill_forecast_msoa {
     sql: ${TABLE}.RATING_AGG_POOR ;;
   }
 
-  dimension: msoa11_cd {
-    type: string
-    sql: ${TABLE}.MSOA11CD ;;
-  }
-
-  dimension: msoa11_nm {
-    type: string
-    sql: ${TABLE}.MSOA11NM ;;
-  }
-
   dimension: rgn11_cd {
     type: string
     sql: ${TABLE}.RGN11CD ;;
@@ -147,6 +137,16 @@ view: a200_energy_bill_forecast_msoa {
   dimension: ladnm {
     type: string
     sql: ${TABLE}.LADNM ;;
+  }
+
+  dimension: msoa11_cd {
+    type: string
+    sql: ${TABLE}.MSOA11CD ;;
+  }
+
+  dimension: msoa11_nm {
+    type: string
+    sql: ${TABLE}.MSOA11NM ;;
   }
 
 

@@ -30,19 +30,19 @@ view: a200_energy_bill_forecast_la {
   measure: pct_pop_16_65 {
     type: number
     sql: ${age_16_64}/${all_ages} ;;
-    html: {{msoa11_nm._rendered_value }};;
+    html: {{ladnm._rendered_value }};;
   }
 
   measure: ldn_avg_energy_bill_std_from_mean {
     type: number
     sql: ((${avg_annual_bill_energy}-2568.82)/441.026) ;;
-    html: {{msoa11_nm._rendered_value }};;
+    html: {{ladnm._rendered_value }};;
   }
 
   measure: pct_poor_epc_rating {
     type: number
     sql: ${rating_agg_poor}/${rating_agg_all} ;;
-    html: {{msoa11_nm._rendered_value }};;
+    html: {{ladnm._rendered_value }};;
   }
 
   measure: all_ages {
@@ -123,16 +123,6 @@ view: a200_energy_bill_forecast_la {
   measure: rating_agg_poor {
     type: sum
     sql: ${TABLE}.RATING_AGG_POOR ;;
-  }
-
-  dimension: msoa11_cd {
-    type: string
-    sql: ${TABLE}.MSOA11CD ;;
-  }
-
-  dimension: msoa11_nm {
-    type: string
-    sql: ${TABLE}.MSOA11NM ;;
   }
 
   dimension: rgn11_cd {
