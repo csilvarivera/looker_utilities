@@ -196,12 +196,6 @@ view: a300_energy_bill_forecast_msoa_geo {
     sql_longitude: ${msoa_geo_centroid_lon};;
 }
 
-  dimension: msoa_polygon_layer {
-    sql: ${TABLE}.MSOA_geo_polygon ;;
-    map_layer_name: uk_postcode_areas
-  }
-
-
   dimension: msoa_geo_polygon {
     type: string
     sql: ${TABLE}.MSOA_geo_polygon ;;
