@@ -126,6 +126,13 @@ view: a300_energy_bill_forecast_msoa_geo {
       value_format: "0%"
     }
 
+  measure: pct_households_fuel_poverty {
+    type: number
+    sql: ${households_in_poverty}/${number_of_households} ;;
+    # html: {{msoa11_nm._rendered_value }};;
+    value_format: "0%"
+  }
+
     dimension: rgn11_cd {
       type: string
       sql: ${TABLE}.RGN11CD ;;
