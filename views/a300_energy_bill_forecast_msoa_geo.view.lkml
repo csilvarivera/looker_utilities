@@ -190,6 +190,12 @@ view: a300_energy_bill_forecast_msoa_geo {
     sql: ${TABLE}.MSOA_geo_centroid_lon ;;
   }
 
+  dimension: msoa_latlong{
+    type: location
+    sql_latitude: ${msoa_geo_centroid_lat};;
+    sql_longitude: ${msoa_geo_centroid_lon};;
+}
+
   dimension: msoa_geo_polygon {
     type: string
     sql: ${TABLE}.MSOA_geo_polygon ;;
