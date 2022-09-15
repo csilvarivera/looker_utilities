@@ -59,6 +59,9 @@ explore: a200_energy_bill_forecast_rgn {}
 
 explore: a200_energy_bill_forecast_la {}
 
+explore: a300_energy_bill_forecast_msoa_geo {}
+
+
 
 # explore: a100_pcd_lsoa_map {}
 
