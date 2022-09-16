@@ -18,19 +18,41 @@ view: a300_energy_bill_forecast_msoa_geo {
       allowed_value: {label: "Net Annual Income After Housing Cost" value: "AHCI"}
       allowed_value: {label: "Average Household Size" value: "HSZE"}
       allowed_value: {label: "Percentage of population over 65" value: "PC65"}
+      allowed_value: {label: "Children per household" value: "CPH"}
+      allowed_value: {label: "Disposable Income spent on Energy" value: "EPCT"}
+      allowed_value: {label: "Percentage of households with poor efficiency rating" value: "POOREPC"}
     }
 
+  parameter: y_axis_param {
+    type:  unquoted
+    description: "Dependent Variable used in correlations"
+    allowed_value: {label: "Percentage of households in fuel poverty" value: "PCTFPOV"}
+    allowed_value: {label: "Average Annual Energy Bill" value: "AVGBILL"}
+    allowed_value: {label: "Percentage of households with poor efficiency rating" value: "POOREPC"}
+  }
+
     measure: x_axis_value {
+      label_from_parameter: x_axis_param
       type: number
       description: "To be used with scatter chart"
       sql: {% if x_axis_param._parameter_value == "AHCI" %}
             ${net_annual_income_after_housing_costs}
            {% elsif x_axis_param._parameter_value == "HSZE" %}
             ${all_ages}/${number_of_households}
-            {% else %}
+           {% elsif x_axis_param._parameter_value == "PC65" %}
             ${age_65_above}/${all_ages}
+           {% elsif x_axis_param._parameter_value == "CPH" %}
+            ${age_16_64}/${number_of_households}
+           {% elsif x_axis_param._parameter_value == "EPCT" %}
+            ${avg_annual_bill_energy}/${net_annual_income_after_housing_costs}
+            {% elsif x_axis_param._parameter_value == "POOREPC" %}
+            ${pct_poor_epc_rating}
+            {% else %}
+            ${pct_households_fuel_poverty}
             {% endif %};;
     }
+
+
 
     measure: age_0_15 {
       type: sum
