@@ -50,6 +50,8 @@ view: a300_energy_bill_forecast_msoa_geo {
             {% else %}
             ${pct_households_fuel_poverty}
             {% endif %};;
+      html: {{msoa11_nm._rendered_value }};;
+
     }
 
   measure: y_axis_value {
