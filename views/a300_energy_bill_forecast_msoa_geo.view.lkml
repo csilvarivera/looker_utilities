@@ -52,7 +52,20 @@ view: a300_energy_bill_forecast_msoa_geo {
             {% endif %};;
     }
 
-
+  measure: y_axis_value {
+    label_from_parameter: y_axis_param
+    type: number
+    description: "To be used with scatter chart"
+    sql: {% if x_axis_param._parameter_value == "PCTFPOV" %}
+            ${pct_households_fuel_poverty}
+           {% elsif x_axis_param._parameter_value == "AVGBILL" %}
+            ${avg_annual_bill_energy}
+            {% elsif x_axis_param._parameter_value == "POOREPC" %}
+            ${pct_poor_epc_rating}
+            {% else %}
+            ${pct_households_fuel_poverty}
+            {% endif %};;
+  }
 
     measure: age_0_15 {
       type: sum
