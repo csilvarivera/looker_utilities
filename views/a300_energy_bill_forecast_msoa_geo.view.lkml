@@ -11,6 +11,27 @@ view: a300_energy_bill_forecast_msoa_geo {
   # A dimension is a groupable field that can be used to filter query results.
   # This dimension will be called "Age 0 15" in Explore.
 
+
+    parameter: x_axis_param {
+      type:  unquoted
+      description: "Independent Variable used in correlations"
+      allowed_value: {label: "Net Annual Income After Housing Cost" value: "AHCI"}
+      allowed_value: {label: "Average Household Size" value: "HSZE"}
+      allowed_value: {label: "Percentage of population over 65" value: "PC65"}
+    }
+
+    measure: x_axis_value {
+      type: number
+      description: "To be used with scatter chart"
+      sql: {% if x_axis_param._parameter_value == "AHCI" %}
+            ${net_annual_income_after_housing_costs}
+           {% elsif x_axis_param._parameter_value == "HSZE" %}
+            ${all_ages}/${number_of_households}
+            {% else %}
+            ${age_65_above}/${all_ages}
+            {% endif %};;
+    }
+
     measure: age_0_15 {
       type: sum
       sql: ${TABLE}.AGE_0_15 ;;
