@@ -47,21 +47,21 @@ view: a300_energy_bill_forecast_msoa_geo_v2 {
     label_from_parameter: heatmap_select_param
     type: number
     description: "To be used with scatter chart"
-    sql: {% if x_axis_param._parameter_value == "PCTFPOV" %}
+    sql: {% if heatmap_select_param._parameter_value == "PCTFPOV" %}
           ${households_in_poverty}/${number_of_households}
-            {% elsif x_axis_param._parameter_value == "AHCI" %}
+            {% elsif heatmap_select_param._parameter_value == "AHCI" %}
              ${net_annual_income_after_housing_costs}
-           {% elsif x_axis_param._parameter_value == "HSZE" %}
+           {% elsif heatmap_select_param._parameter_value == "HSZE" %}
             ${all_ages}/${number_of_households}
-           {% elsif x_axis_param._parameter_value == "PC65" %}
+           {% elsif heatmap_select_param._parameter_value == "PC65" %}
             ${age_65_above}/${all_ages}
-           {% elsif x_axis_param._parameter_value == "CARATIO" %}
+           {% elsif heatmap_select_param._parameter_value == "CARATIO" %}
             ${age_0_15}/${age_16_64}
-             {% elsif x_axis_param._parameter_value == "CPH" %}
+             {% elsif heatmap_select_param._parameter_value == "CPH" %}
             ${age_0_15}/${number_of_households}
-           {% elsif x_axis_param._parameter_value == "EPCT" %}
+           {% elsif heatmap_select_param._parameter_value == "EPCT" %}
             ${avg_annual_bill_energy}/${net_annual_income_after_housing_costs}
-            {% elsif x_axis_param._parameter_value == "POOREPC" %}
+            {% elsif heatmap_select_param._parameter_value == "POOREPC" %}
             ${rating_agg_poor}/${rating_agg_all}
             {% else %}
              ${households_in_poverty}/${number_of_households}
