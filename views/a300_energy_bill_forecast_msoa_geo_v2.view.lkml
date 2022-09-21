@@ -7,73 +7,7 @@ view: a300_energy_bill_forecast_msoa_geo_v2 {
   # No primary key is defined for this view. In order to join this view in an Explore,
   # define primary_key: yes on a dimension that has no repeated values.
 
-  # Here's what a typical dimension looks like in LookML.
-  # A dimension is a groupable field that can be used to filter query results.
-  # This dimension will be called "Age 0 15" in Explore.
-
-  measure: age_0_15 {
-    type: number
-    sql: ${TABLE}.AGE_0_15 ;;
-  }
-
-  measure: age_16_64 {
-    type: number
-    sql: ${TABLE}.AGE_16_64 ;;
-  }
-
-  measure: age_65_above {
-    type: number
-    sql: ${TABLE}.AGE_65_ABOVE ;;
-  }
-
-  measure: all_ages {
-    type: number
-    sql: ${TABLE}.ALL_AGES ;;
-  }
-
-  measure: avg_annual_bill_elec {
-    type: number
-    sql: ${TABLE}.AVG_ANNUAL_BILL_ELEC ;;
-  }
-
-  measure: avg_annual_bill_energy {
-    type: number
-    sql: ${TABLE}.AVG_ANNUAL_BILL_ENERGY ;;
-  }
-
-  measure: avg_annual_bill_gas {
-    type: number
-    sql: ${TABLE}.AVG_ANNUAL_BILL_GAS ;;
-  }
-
-  dimension: energy_bill_pct_net_annual_income {
-    type: number
-    sql: ${TABLE}.ENERGY_BILL_PCT_NET_ANNUAL_INCOME ;;
-  }
-
-  measure: energy_bill_pct_total_annual_income {
-    type: number
-    sql: ${TABLE}.ENERGY_BILL_PCT_TOTAL_ANNUAL_INCOME ;;
-  }
-
-  measure: households_in_poverty {
-    type: number
-    sql: ${TABLE}.HOUSEHOLDS_IN_POVERTY ;;
-  }
-
-  measure: housing_cost {
-    type: number
-    sql: ${TABLE}.HOUSING_COST ;;
-  }
-
-  # A measure is a field that uses a SQL aggregate function. Here are defined sum and average
-  # measures for this dimension, but you can also add measures of many different aggregates.
-  # Click on the type parameter to see all the options in the Quick Help panel on the right.
-
-  measure: income_after_housing_energy {
-    type: number
-    sql: ${TABLE}.INCOME_AFTER_HOUSING_ENERGY ;;
-  }
+  # dimensions
 
   dimension: ladcd {
     type: string
@@ -126,41 +60,6 @@ view: a300_energy_bill_forecast_msoa_geo_v2 {
     sql: ${TABLE}.nat22nm ;;
   }
 
-  measure: net_annual_income {
-    type: number
-    sql: ${TABLE}.NET_ANNUAL_INCOME ;;
-  }
-
-  measure: net_annual_income_after_housing_costs {
-    type: number
-    sql: ${TABLE}.NET_ANNUAL_INCOME_AFTER_HOUSING_COSTS ;;
-  }
-
-  measure: net_income_before_housing_costs {
-    type: number
-    sql: ${TABLE}.NET_INCOME_BEFORE_HOUSING_COSTS ;;
-  }
-
-  measure: number_of_households {
-    type: number
-    sql: ${TABLE}.NUMBER_OF_HOUSEHOLDS ;;
-  }
-
-  measure: rating_agg_all {
-    type: number
-    sql: ${TABLE}.RATING_AGG_ALL ;;
-  }
-
-  measure: rating_agg_good {
-    type: number
-    sql: ${TABLE}.RATING_AGG_GOOD ;;
-  }
-
-  measure: rating_agg_poor {
-    type: number
-    sql: ${TABLE}.RATING_AGG_POOR ;;
-  }
-
   dimension: rgn11_cd {
     type: string
     sql: ${TABLE}.RGN11CD ;;
@@ -171,14 +70,112 @@ view: a300_energy_bill_forecast_msoa_geo_v2 {
     sql: ${TABLE}.RGN11NM ;;
   }
 
-  measure: total_annual_income {
-    type: number
-    sql: ${TABLE}.TOTAL_ANNUAL_INCOME ;;
-  }
-
   dimension: year {
     type: number
     sql: ${TABLE}.YEAR ;;
+  }
+
+
+  #Measures
+
+  measure: total_annual_income {
+    type: sum
+    sql: ${TABLE}.TOTAL_ANNUAL_INCOME ;;
+  }
+
+  measure: net_annual_income {
+    type: sum
+    sql: ${TABLE}.NET_ANNUAL_INCOME ;;
+  }
+
+  measure: net_annual_income_after_housing_costs {
+    type: sum
+    sql: ${TABLE}.NET_ANNUAL_INCOME_AFTER_HOUSING_COSTS ;;
+  }
+
+  measure: net_income_before_housing_costs {
+    type: sum
+    sql: ${TABLE}.NET_INCOME_BEFORE_HOUSING_COSTS ;;
+  }
+
+  measure: number_of_households {
+    type: sum
+    sql: ${TABLE}.NUMBER_OF_HOUSEHOLDS ;;
+  }
+
+  measure: rating_agg_all {
+    type: sum
+    sql: ${TABLE}.RATING_AGG_ALL ;;
+  }
+
+  measure: rating_agg_good {
+    type: sum
+    sql: ${TABLE}.RATING_AGG_GOOD ;;
+  }
+
+  measure: rating_agg_poor {
+    type: sum
+    sql: ${TABLE}.RATING_AGG_POOR ;;
+  }
+
+  measure: income_after_housing_energy {
+    type: sum
+    sql: ${TABLE}.INCOME_AFTER_HOUSING_ENERGY ;;
+  }
+
+  measure: age_0_15 {
+    type: sum
+    sql: ${TABLE}.AGE_0_15 ;;
+  }
+
+  measure: age_16_64 {
+    type: sum
+    sql: ${TABLE}.AGE_16_64 ;;
+  }
+
+  measure: age_65_above {
+    type: sum
+    sql: ${TABLE}.AGE_65_ABOVE ;;
+  }
+
+  measure: all_ages {
+    type: sum
+    sql: ${TABLE}.ALL_AGES ;;
+  }
+
+  measure: avg_annual_bill_elec {
+    type: average
+    sql: ${TABLE}.AVG_ANNUAL_BILL_ELEC ;;
+  }
+
+  measure: avg_annual_bill_energy {
+    type: average
+    sql: ${TABLE}.AVG_ANNUAL_BILL_ENERGY ;;
+  }
+
+  measure: avg_annual_bill_gas {
+    type: average
+    sql: ${TABLE}.AVG_ANNUAL_BILL_GAS ;;
+  }
+
+  measure: energy_bill_pct_net_annual_income {
+    type: average
+    sql: ${TABLE}.ENERGY_BILL_PCT_NET_ANNUAL_INCOME ;;
+  }
+
+  measure: energy_bill_pct_total_annual_income {
+    type: average
+    sql: ${TABLE}.ENERGY_BILL_PCT_TOTAL_ANNUAL_INCOME ;;
+  }
+
+  measure: households_in_poverty {
+    type: sum
+    sql: ${TABLE}.HOUSEHOLDS_IN_POVERTY ;;
+  }
+
+  measure: housing_cost {
+    type: sum
+    sql: ${TABLE}.HOUSING_COST ;;
   }
 
 }
