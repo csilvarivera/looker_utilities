@@ -7,6 +7,109 @@ view: a300_energy_bill_forecast_msoa_geo_v2 {
   # No primary key is defined for this view. In order to join this view in an Explore,
   # define primary_key: yes on a dimension that has no repeated values.
 
+
+  # Parameters
+  parameter: heatmap_select_param {
+    type:  unquoted
+    description: "Independent Variable used in correlations"
+    allowed_value: {label: "Percentage of households in fuel poverty" value: "PCTFPOV"}
+    allowed_value: {label: "Net Annual Income After Housing Cost" value: "AHCI"}
+    allowed_value: {label: "Average Household Size" value: "HSZE"}
+    allowed_value: {label: "Percentage of population over 65" value: "PC65"}
+    allowed_value: {label: "Children to Working Age Ratio" value: "CARATIO"}
+    allowed_value: {label: "Children per household" value: "CPH"}
+    allowed_value: {label: "Disposable Income spent on Energy" value: "EPCT"}
+    allowed_value: {label: "Percentage of households with poor efficiency rating" value: "POOREPC"}
+  }
+
+
+  parameter: x_axis_param {
+    type:  unquoted
+    description: "Independent Variable used in correlations"
+    allowed_value: {label: "Net Annual Income After Housing Cost" value: "AHCI"}
+    allowed_value: {label: "Average Household Size" value: "HSZE"}
+    allowed_value: {label: "Percentage of population over 65" value: "PC65"}
+    allowed_value: {label: "Children per household" value: "CPH"}
+    allowed_value: {label: "Disposable Income spent on Energy" value: "EPCT"}
+    allowed_value: {label: "Percentage of households with poor efficiency rating" value: "POOREPC"}
+  }
+
+  parameter: y_axis_param {
+    type:  unquoted
+    description: "Dependent Variable used in correlations"
+    allowed_value: {label: "Percentage of households in fuel poverty" value: "PCTFPOV"}
+    allowed_value: {label: "Average Annual Energy Bill" value: "AVGBILL"}
+    allowed_value: {label: "Percentage of households with poor efficiency rating" value: "POOREPC"}
+  }
+
+
+  measure: heatmap_select_value {
+    label_from_parameter: heatmap_select_param
+    type: number
+    description: "To be used with scatter chart"
+    sql: {% if x_axis_param._parameter_value == "PCTFPOV" %}
+          ${households_in_poverty}/${number_of_households}
+            {% elsif x_axis_param._parameter_value == "AHCI" %}
+             ${net_annual_income_after_housing_costs}
+           {% elsif x_axis_param._parameter_value == "HSZE" %}
+            ${all_ages}/${number_of_households}
+           {% elsif x_axis_param._parameter_value == "PC65" %}
+            ${age_65_above}/${all_ages}
+           {% elsif x_axis_param._parameter_value == "CARATIO" %}
+            ${age_0_15}/${age_16_64}
+             {% elsif x_axis_param._parameter_value == "CPH" %}
+            ${age_0_15}/${number_of_households}
+           {% elsif x_axis_param._parameter_value == "EPCT" %}
+            ${avg_annual_bill_energy}/${net_annual_income_after_housing_costs}
+            {% elsif x_axis_param._parameter_value == "POOREPC" %}
+            ${rating_agg_poor}/${rating_agg_all}
+            {% else %}
+             ${households_in_poverty}/${number_of_households}
+            {% endif %};;
+    html: {{msoa11_nm._rendered_value }};;
+
+  }
+
+
+
+  measure: x_axis_value {
+    label_from_parameter: x_axis_param
+    type: number
+    description: "To be used with scatter chart"
+    sql: {% if x_axis_param._parameter_value == "AHCI" %}
+            ${net_annual_income_after_housing_costs}
+           {% elsif x_axis_param._parameter_value == "HSZE" %}
+            ${all_ages}/${number_of_households}
+           {% elsif x_axis_param._parameter_value == "PC65" %}
+            ${age_65_above}/${all_ages}
+           {% elsif x_axis_param._parameter_value == "CPH" %}
+            ${age_16_64}/${number_of_households}
+           {% elsif x_axis_param._parameter_value == "EPCT" %}
+            ${avg_annual_bill_energy}/${net_annual_income_after_housing_costs}
+            {% elsif x_axis_param._parameter_value == "POOREPC" %}
+             ${rating_agg_poor}/${rating_agg_all}
+            {% else %}
+             ${households_in_poverty}/${number_of_households}
+            {% endif %};;
+    html: {{msoa11_nm._rendered_value }};;
+
+  }
+
+  measure: y_axis_value {
+    label_from_parameter: y_axis_param
+    type: number
+    description: "To be used with scatter chart"
+    sql: {% if x_axis_param._parameter_value == "PCTFPOV" %}
+           ${households_in_poverty}/${number_of_households}
+           {% elsif x_axis_param._parameter_value == "AVGBILL" %}
+            ${avg_annual_bill_energy}
+            {% elsif x_axis_param._parameter_value == "POOREPC" %}
+             ${rating_agg_poor}/${rating_agg_all}
+            {% else %}
+            ${households_in_poverty}/${number_of_households}
+            {% endif %};;
+  }
+
   # dimensions
 
   dimension: ladcd {
