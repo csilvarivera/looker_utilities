@@ -11,12 +11,12 @@ view: a300_energy_bill_forecast_msoa_geo_v2 {
   # A dimension is a groupable field that can be used to filter query results.
   # This dimension will be called "Age 0 15" in Explore.
 
-  dimension: age_0_15 {
+  measure: age_0_15 {
     type: number
     sql: ${TABLE}.AGE_0_15 ;;
   }
 
-  dimension: age_16_64 {
+  measure: age_16_64 {
     type: number
     sql: ${TABLE}.AGE_16_64 ;;
   }
@@ -31,7 +31,7 @@ view: a300_energy_bill_forecast_msoa_geo_v2 {
     sql: ${TABLE}.ALL_AGES ;;
   }
 
-  dimension: avg_annual_bill_elec {
+  measure: avg_annual_bill_elec {
     type: number
     sql: ${TABLE}.AVG_ANNUAL_BILL_ELEC ;;
   }
@@ -41,7 +41,7 @@ view: a300_energy_bill_forecast_msoa_geo_v2 {
     sql: ${TABLE}.AVG_ANNUAL_BILL_ENERGY ;;
   }
 
-  dimension: avg_annual_bill_gas {
+  measure: avg_annual_bill_gas {
     type: number
     sql: ${TABLE}.AVG_ANNUAL_BILL_GAS ;;
   }
@@ -51,17 +51,17 @@ view: a300_energy_bill_forecast_msoa_geo_v2 {
     sql: ${TABLE}.ENERGY_BILL_PCT_NET_ANNUAL_INCOME ;;
   }
 
-  dimension: energy_bill_pct_total_annual_income {
+  measure: energy_bill_pct_total_annual_income {
     type: number
     sql: ${TABLE}.ENERGY_BILL_PCT_TOTAL_ANNUAL_INCOME ;;
   }
 
-  dimension: households_in_poverty {
+  measure: households_in_poverty {
     type: number
     sql: ${TABLE}.HOUSEHOLDS_IN_POVERTY ;;
   }
 
-  dimension: housing_cost {
+  measure: housing_cost {
     type: number
     sql: ${TABLE}.HOUSING_COST ;;
   }
@@ -70,17 +70,7 @@ view: a300_energy_bill_forecast_msoa_geo_v2 {
   # measures for this dimension, but you can also add measures of many different aggregates.
   # Click on the type parameter to see all the options in the Quick Help panel on the right.
 
-  measure: total_housing_cost {
-    type: sum
-    sql: ${housing_cost} ;;
-  }
-
-  measure: average_housing_cost {
-    type: average
-    sql: ${housing_cost} ;;
-  }
-
-  dimension: income_after_housing_energy {
+  measure: income_after_housing_energy {
     type: number
     sql: ${TABLE}.INCOME_AFTER_HOUSING_ENERGY ;;
   }
@@ -120,6 +110,12 @@ view: a300_energy_bill_forecast_msoa_geo_v2 {
     sql: ${TABLE}.MSOA_geo_centroid_lon ;;
   }
 
+  dimension: msoa_latlong{
+    type: location
+    sql_latitude: ${msoa_geo_centroid_lat};;
+    sql_longitude: ${msoa_geo_centroid_lon};;
+  }
+
   dimension: nat22cd {
     type: string
     sql: ${TABLE}.nat22cd ;;
@@ -130,37 +126,37 @@ view: a300_energy_bill_forecast_msoa_geo_v2 {
     sql: ${TABLE}.nat22nm ;;
   }
 
-  dimension: net_annual_income {
+  measure: net_annual_income {
     type: number
     sql: ${TABLE}.NET_ANNUAL_INCOME ;;
   }
 
-  dimension: net_annual_income_after_housing_costs {
+  measure: net_annual_income_after_housing_costs {
     type: number
     sql: ${TABLE}.NET_ANNUAL_INCOME_AFTER_HOUSING_COSTS ;;
   }
 
-  dimension: net_income_before_housing_costs {
+  measure: net_income_before_housing_costs {
     type: number
     sql: ${TABLE}.NET_INCOME_BEFORE_HOUSING_COSTS ;;
   }
 
-  dimension: number_of_households {
+  measure: number_of_households {
     type: number
     sql: ${TABLE}.NUMBER_OF_HOUSEHOLDS ;;
   }
 
-  dimension: rating_agg_all {
+  measure: rating_agg_all {
     type: number
     sql: ${TABLE}.RATING_AGG_ALL ;;
   }
 
-  dimension: rating_agg_good {
+  measure: rating_agg_good {
     type: number
     sql: ${TABLE}.RATING_AGG_GOOD ;;
   }
 
-  dimension: rating_agg_poor {
+  measure: rating_agg_poor {
     type: number
     sql: ${TABLE}.RATING_AGG_POOR ;;
   }
@@ -175,7 +171,7 @@ view: a300_energy_bill_forecast_msoa_geo_v2 {
     sql: ${TABLE}.RGN11NM ;;
   }
 
-  dimension: total_annual_income {
+  measure: total_annual_income {
     type: number
     sql: ${TABLE}.TOTAL_ANNUAL_INCOME ;;
   }
@@ -185,8 +181,4 @@ view: a300_energy_bill_forecast_msoa_geo_v2 {
     sql: ${TABLE}.YEAR ;;
   }
 
-  measure: count {
-    type: count
-    drill_fields: []
-  }
 }
