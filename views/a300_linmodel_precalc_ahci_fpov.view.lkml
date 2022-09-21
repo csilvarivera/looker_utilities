@@ -56,8 +56,8 @@ view: a300_linmodel_precalc_ahci_fpov {
     sql: ${TABLE}.NUMBER_OF_HOUSEHOLDS ;;
   }
 
-  measure: pct_income_decrease {
-    type: average
+  dimension: pct_income_decrease {
+    type: number
     sql: ${TABLE}.PCT_INCOME_DECREASE ;;
   }
 
