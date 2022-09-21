@@ -37,6 +37,9 @@ explore: a300_energy_bill_forecast_msoa_geo_v2 {}
 
 explore: a300_linmodel_precalc_ahci_fpov {}
 
+explore: a400_linmodel_precalc_ahci_fpov_geo {}
+
+
 
 # explore: a100_pcd_lsoa_map {}
 
