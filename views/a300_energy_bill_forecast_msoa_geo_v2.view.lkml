@@ -21,12 +21,12 @@ view: a300_energy_bill_forecast_msoa_geo_v2 {
     sql: ${TABLE}.AGE_16_64 ;;
   }
 
-  dimension: age_65_above {
+  measure: age_65_above {
     type: number
     sql: ${TABLE}.AGE_65_ABOVE ;;
   }
 
-  dimension: all_ages {
+  measure: all_ages {
     type: number
     sql: ${TABLE}.ALL_AGES ;;
   }
@@ -36,7 +36,7 @@ view: a300_energy_bill_forecast_msoa_geo_v2 {
     sql: ${TABLE}.AVG_ANNUAL_BILL_ELEC ;;
   }
 
-  dimension: avg_annual_bill_energy {
+  measure: avg_annual_bill_energy {
     type: number
     sql: ${TABLE}.AVG_ANNUAL_BILL_ENERGY ;;
   }
