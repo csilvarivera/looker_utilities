@@ -66,8 +66,6 @@ view: a300_energy_bill_forecast_msoa_geo_v2 {
             {% else %}
              ${households_in_poverty}/${number_of_households}
             {% endif %};;
-    html: {{msoa11_nm._rendered_value }};;
-
   }
 
 
@@ -151,6 +149,7 @@ view: a300_energy_bill_forecast_msoa_geo_v2 {
     type: location
     sql_latitude: ${msoa_geo_centroid_lat};;
     sql_longitude: ${msoa_geo_centroid_lon};;
+    html: {{msoa11_nm._rendered_value }};;
   }
 
   dimension: nat22cd {
