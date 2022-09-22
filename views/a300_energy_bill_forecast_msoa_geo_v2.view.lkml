@@ -407,6 +407,29 @@ view: a300_energy_bill_forecast_msoa_geo_v2 {
     value_format: "#,##0"
   }
 
+  measure: wavg_income_after_housing_and_energy {
+    type: number
+    sql: ${wavg_households_net_annual_income_after_housing} * (${wavg_households_bill_energy}) ;;
+    # html: {{msoa11_nm._rendered_value }};;
+    value_format: "\"£\"0"
+  }
+
+  measure: wavg_household_size {
+    type: number
+    sql: ${all_ages}/${number_of_households} ;;
+    # html: {{msoa11_nm._rendered_value }};;
+    value_format: "0.0"
+  }
+
+  measure: wavg_children_per_household {
+    type: number
+    sql: ${age_0_15}/${number_of_households} ;;
+    # html: {{msoa11_nm._rendered_value }};;
+    value_format: "0.0"
+  }
+
+
+
 
 
 
