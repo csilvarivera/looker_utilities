@@ -289,18 +289,4 @@ view: a300_energy_bill_forecast_msoa_geo_v2 {
     sql: ${TABLE}.HOUSING_COST ;;
   }
 
-
-  # Weighted AVG Measures
-
-  measure: weighted_bill_elec {
-    type: number
-    sql: ${avg_annual_bill_elec} * ${number_of_households} ;;
-  }
-
-  measure: weighted_avg_annual_bill_elec {
-    type: number
-    sql: sum(${weighted_bill_elec})/sum(${number_of_households}) ;;
-  }
-
-
 }
