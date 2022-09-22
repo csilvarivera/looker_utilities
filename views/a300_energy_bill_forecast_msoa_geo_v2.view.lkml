@@ -180,6 +180,13 @@ view: a300_energy_bill_forecast_msoa_geo_v2 {
 
   #Measures
 
+  measure: pct_households_fuel_poverty {
+    type: number
+    sql: ${households_in_poverty}/${number_of_households} ;;
+    # html: {{msoa11_nm._rendered_value }};;
+    value_format: "0%"
+  }
+
   measure: total_annual_income {
     type: sum
     sql: ${TABLE}.TOTAL_ANNUAL_INCOME ;;
