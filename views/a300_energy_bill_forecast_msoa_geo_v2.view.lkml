@@ -289,4 +289,55 @@ view: a300_energy_bill_forecast_msoa_geo_v2 {
     sql: ${TABLE}.HOUSING_COST ;;
   }
 
+  measure: pop_total_annual_income{
+    type:  sum
+    sql: ${TABLE}.POP_TOTAL_ANNUAL_INCOME ;;
+  }
+
+  measure: pop_net_annual_income{
+    type:  sum
+    sql: ${TABLE}.POP_NET_ANNUAL_INCOME ;;
+  }
+
+  measure: pop_net_income_before_housing_cost{
+    type:  sum
+    sql: ${TABLE}.POP_NET_INCOME_BEFORE_HOUSING_COST ;;
+  }
+
+  measure: pop_net_income_after_housing_cost{
+    type:  sum
+    sql: ${TABLE}.POP_NET_INCOME_AFTER_HOUSING_COST ;;
+  }
+
+  measure: pop_net_annual_income_after_housing_cost{
+    type:  sum
+    sql: ${TABLE}.POP_NET_ANNUAL_INCOME_AFTER_HOUSING_COST ;;
+  }
+
+  measure: pop_housing_cost{
+    type:  sum
+    sql: ${TABLE}.POP_HOUSING_COST ;;
+  }
+
+  measure: pop_annual_bill_elec{
+    type:  sum
+    sql: ${TABLE}.POP_ANNUAL_BILL_ELEC ;;
+  }
+
+  measure: pop_annual_bill_gas{
+    type:  sum
+    sql: ${TABLE}.POP_ANNUAL_BILL_GAS ;;
+  }
+
+  measure: pop_annual_bill_energy{
+    type:  sum
+    sql: ${TABLE}.POP_ANNUAL_BILL_ENERGY ;;
+  }
+
+  measure: pop_income_after_housing_energy{
+    type:  sum
+    sql: ${TABLE}.POP_INCOME_AFTER_HOUSING_ENERGY ;;
+  }
+
+
 }
