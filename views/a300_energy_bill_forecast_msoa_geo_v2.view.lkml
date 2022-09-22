@@ -340,14 +340,14 @@ view: a300_energy_bill_forecast_msoa_geo_v2 {
     type: number
     sql: ${pop_annual_bill_elec}/${number_of_households} ;;
     # html: {{msoa11_nm._rendered_value }};;
-    value_format: "\"£\"0"
+    value_format: "\"£\"#,##0"
   }
 
   measure: wavg_households_bill_gas {
     type: number
     sql: ${pop_annual_bill_gas}/${number_of_households} ;;
     # html: {{msoa11_nm._rendered_value }};;
-    value_format: "\"£\"0"
+    value_format: "\"£\"#,##0"
   }
 
 
@@ -355,28 +355,28 @@ view: a300_energy_bill_forecast_msoa_geo_v2 {
     type: number
     sql: ${pop_annual_bill_energy}/${number_of_households} ;;
     # html: {{msoa11_nm._rendered_value }};;
-    value_format: "\"£\"0"
+    value_format: "\"£\"#,##0"
   }
 
   measure: wavg_households_net_annual_income {
     type: number
     sql: ${pop_net_annual_income}/${number_of_households} ;;
     # html: {{msoa11_nm._rendered_value }};;
-    value_format: "\"£\"0"
+    value_format: "\"£\"#,##0"
   }
 
   measure: wavg_households_net_annual_income_after_housing{
     type: number
     sql: ${pop_net_annual_income_after_housing_costs}/${number_of_households} ;;
     # html: {{msoa11_nm._rendered_value }};;
-    value_format: "\"£\"0"
+    value_format: "\"£\"#,##0"
   }
 
   measure: wavg_housing_cost{
     type: number
     sql: ${pop_housing_cost}/${number_of_households} ;;
     # html: {{msoa11_nm._rendered_value }};;
-    value_format: "\"£\"0"
+    value_format: "\"£\"#,##0"
   }
 
   measure: pct_net_income_on_energy {
