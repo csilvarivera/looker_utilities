@@ -301,9 +301,9 @@ view: a300_energy_bill_forecast_msoa_geo_v2 {
     sql: ${TABLE}.POP_NET_INCOME_AFTER_HOUSING_COST ;;
   }
 
-  measure: pop_net_annual_income_after_housing_cost{
+  measure: pop_net_annual_income_after_housing_costs{
     type:  sum
-    sql: ${TABLE}.POP_NET_ANNUAL_INCOME_AFTER_HOUSING_COST ;;
+    sql: ${TABLE}.POP_NET_ANNUAL_INCOME_AFTER_HOUSING_COSTS ;;
   }
 
   measure: pop_housing_cost{
@@ -372,7 +372,7 @@ view: a300_energy_bill_forecast_msoa_geo_v2 {
 
   measure: wavg_households_net_annual_income_after_housing{
     type: number
-    sql: ${pop_net_annual_income_after_housing_cost}/${number_of_households} ;;
+    sql: ${pop_net_annual_income_after_housing_costs}/${number_of_households} ;;
     # html: {{msoa11_nm._rendered_value }};;
     value_format: "\"£\"0"
   }
@@ -393,7 +393,7 @@ view: a300_energy_bill_forecast_msoa_geo_v2 {
 
   measure: pct_after_housing_income_on_energy {
     type: number
-    sql: ${pop_annual_bill_energy}/${pop_net_annual_income_after_housing_cost} ;;
+    sql: ${pop_annual_bill_energy}/${pop_net_income_after_housing_cost} ;;
     # html: {{msoa11_nm._rendered_value }};;
     value_format: "0%"
   }
