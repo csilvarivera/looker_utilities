@@ -409,7 +409,7 @@ view: a300_energy_bill_forecast_msoa_geo_v2 {
 
   measure: wavg_income_after_housing_and_energy {
     type: number
-    sql: ${wavg_households_net_annual_income_after_housing} * (${wavg_households_bill_energy}) ;;
+    sql: ${pop_net_annual_income_after_housing_costs} * (${pop_annual_bill_energy}) ;;
     # html: {{msoa11_nm._rendered_value }};;
     value_format: "\"£\"0"
   }
