@@ -39,6 +39,11 @@ view: a400_linmodel_precalc_ahci_fpov_geo {
     sql: ${TABLE}.nat22nm ;;
   }
 
+  measure: ac_num_person_in_poverty {
+    type: sum
+    sql: ${TABLE}.AC_NUM_PERSON_IN_POVERTY ;;
+  }
+
   measure: ac_num_household_in_poverty {
     type: sum
     sql: ${TABLE}.AC_NUM_HOUSEHOLD_IN_POVERTY ;;
