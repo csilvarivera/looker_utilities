@@ -400,6 +400,13 @@ view: a300_energy_bill_forecast_msoa_geo_v2 {
     value_format: "0%"
   }
 
+  measure: people_in_fuel_poverty {
+    type: number
+    sql: ${households_in_poverty} * (${all_ages}/${number_of_households}) ;;
+    # html: {{msoa11_nm._rendered_value }};;
+    value_format: "#,##0"
+  }
+
 
 
 
