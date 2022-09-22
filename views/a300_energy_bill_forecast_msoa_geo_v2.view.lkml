@@ -200,6 +200,7 @@ view: a300_energy_bill_forecast_msoa_geo_v2 {
   measure: net_annual_income_after_housing_costs {
     type: sum
     sql: ${TABLE}.NET_ANNUAL_INCOME_AFTER_HOUSING_COSTS ;;
+    html: {{msoa11_nm._rendered_value }};;
   }
 
   measure: net_income_before_housing_costs {
