@@ -384,6 +384,20 @@ view: a300_energy_bill_forecast_msoa_geo_v2 {
     value_format: "\"£\"0"
   }
 
+  measure: pct_net_income_on_energy {
+    type: number
+    sql: ${pop_annual_bill_energy}/${pop_net_annual_income} ;;
+    # html: {{msoa11_nm._rendered_value }};;
+    value_format: "0%"
+  }
+
+  measure: pct_net_income_on_housing {
+    type: number
+    sql: ${pop_housing_cost}/${pop_net_annual_income} ;;
+    # html: {{msoa11_nm._rendered_value }};;
+    value_format: "0%"
+  }
+
 
 
 
