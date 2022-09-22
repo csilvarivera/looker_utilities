@@ -175,6 +175,7 @@ view: a300_energy_bill_forecast_msoa_geo_v2 {
   dimension: year {
     type: number
     sql: ${TABLE}.YEAR ;;
+    value_format:  "####"
   }
 
 
