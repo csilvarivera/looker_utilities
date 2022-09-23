@@ -28,7 +28,7 @@ view: a300_energy_bill_forecast_msoa_geo_v2 {
     type: number
     description: "To be used with scatter chart"
     sql: {% if heatmap_select_param._parameter_value == "PCTFPOV" %}
-          ${households_in_poverty}/${number_of_households}
+              floor(${pct_households_fuel_poverty}*100*power(10,#))/power(10,#)
             {% elsif heatmap_select_param._parameter_value == "AHCI" %}
              ${wavg_households_net_annual_income_after_housing}
            {% elsif heatmap_select_param._parameter_value == "HSZE" %}
