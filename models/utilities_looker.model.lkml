@@ -39,6 +39,7 @@ explore: a300_linmodel_precalc_ahci_fpov {}
 
 explore: a400_linmodel_precalc_ahci_fpov_geo {}
 
+explore: custom_navigation_buttons{}
 
 
 # explore: a100_pcd_lsoa_map {}
