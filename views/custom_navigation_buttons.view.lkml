@@ -19,7 +19,7 @@ view: custom_navigation_buttons {
         <nav style="font-size: 18px; color: #4285F4">
           <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="https://googlecloud.looker.com/embed/dashboards/1608">Overview</a>
           <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="https://googlecloud.looker.com/embed/dashboards/1605">Interactive Heatmap</a>
-          <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="https://googlecloud.looker.com/embed/dashboards/1605">Predictive Model</a>
+          <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="https://googlecloud.looker.com/embed/dashboards/1606">Predictive Model</a>
           <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="https://googlecloud.looker.com/embed/dashboards/1607">Regional Drilldown</a>
         </nav>
       </div>
