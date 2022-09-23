@@ -16,30 +16,10 @@ view: a300_energy_bill_forecast_msoa_geo_v2 {
     allowed_value: {label: "Net Annual Income After Housing Cost" value: "AHCI"}
     allowed_value: {label: "Average Household Size" value: "HSZE"}
     allowed_value: {label: "Percentage of population over 65" value: "PC65"}
-    allowed_value: {label: "Children to Working Age Ratio" value: "CARATIO"}
+    allowed_value: {label: "Dependence Ratio (Children + Old Age : Working Age Ratio)" value: "DEPRAT"}
     allowed_value: {label: "Children per household" value: "CPH"}
-    allowed_value: {label: "Disposable Income spent on Energy" value: "EPCT"}
-    allowed_value: {label: "Percentage of households with poor efficiency rating" value: "POOREPC"}
-  }
-
-
-  parameter: x_axis_param {
-    type:  unquoted
-    description: "Independent Variable used in correlations"
-    allowed_value: {label: "Net Annual Income After Housing Cost" value: "AHCI"}
-    allowed_value: {label: "Average Household Size" value: "HSZE"}
-    allowed_value: {label: "Percentage of population over 65" value: "PC65"}
-    allowed_value: {label: "Children per household" value: "CPH"}
-    allowed_value: {label: "Disposable Income spent on Energy" value: "EPCT"}
-    allowed_value: {label: "Percentage of households with poor efficiency rating" value: "POOREPC"}
-  }
-
-  parameter: y_axis_param {
-    type:  unquoted
-    description: "Dependent Variable used in correlations"
-    allowed_value: {label: "Percentage of households in fuel poverty" value: "PCTFPOV"}
-    allowed_value: {label: "Average Annual Energy Bill" value: "AVGBILL"}
-    allowed_value: {label: "Percentage of households with poor efficiency rating" value: "POOREPC"}
+    allowed_value: {label: "Percentage of after housing income spent on energy" value: "EPCT"}
+    allowed_value: {label: "Average Household Annual Energy Bill" value: "EBILL"}
   }
 
 
@@ -50,61 +30,21 @@ view: a300_energy_bill_forecast_msoa_geo_v2 {
     sql: {% if heatmap_select_param._parameter_value == "PCTFPOV" %}
           ${households_in_poverty}/${number_of_households}
             {% elsif heatmap_select_param._parameter_value == "AHCI" %}
-             ${net_annual_income_after_housing_costs}
+             ${wavg_households_net_annual_income_after_housing}
            {% elsif heatmap_select_param._parameter_value == "HSZE" %}
-            ${all_ages}/${number_of_households}
+            ${wavg_household_size}
            {% elsif heatmap_select_param._parameter_value == "PC65" %}
-            ${age_65_above}/${all_ages}
-           {% elsif heatmap_select_param._parameter_value == "CARATIO" %}
-            ${age_0_15}/${age_16_64}
+            ${wavg_pct_over_65}
+           {% elsif heatmap_select_param._parameter_value == "DEPRAT" %}
+            ${wavg_dependence_ratio}
              {% elsif heatmap_select_param._parameter_value == "CPH" %}
-            ${age_0_15}/${number_of_households}
+            ${wavg_children_per_household}
            {% elsif heatmap_select_param._parameter_value == "EPCT" %}
-            ${avg_annual_bill_energy}/${net_annual_income_after_housing_costs}
-            {% elsif heatmap_select_param._parameter_value == "POOREPC" %}
-            ${rating_agg_poor}/${rating_agg_all}
+            ${pct_after_housing_income_on_energy}
+            {% elsif heatmap_select_param._parameter_value == "EBILL" %}
+            ${wavg_households_bill_energy}
             {% else %}
              ${households_in_poverty}/${number_of_households}
-            {% endif %};;
-  }
-
-
-
-  measure: x_axis_value {
-    label_from_parameter: x_axis_param
-    type: number
-    description: "To be used with scatter chart"
-    sql: {% if x_axis_param._parameter_value == "AHCI" %}
-            ${net_annual_income_after_housing_costs}
-           {% elsif x_axis_param._parameter_value == "HSZE" %}
-            ${all_ages}/${number_of_households}
-           {% elsif x_axis_param._parameter_value == "PC65" %}
-            ${age_65_above}/${all_ages}
-           {% elsif x_axis_param._parameter_value == "CPH" %}
-            ${age_16_64}/${number_of_households}
-           {% elsif x_axis_param._parameter_value == "EPCT" %}
-            ${avg_annual_bill_energy}/${net_annual_income_after_housing_costs}
-            {% elsif x_axis_param._parameter_value == "POOREPC" %}
-             ${rating_agg_poor}/${rating_agg_all}
-            {% else %}
-             ${households_in_poverty}/${number_of_households}
-            {% endif %};;
-    html: {{msoa11_nm._rendered_value }};;
-
-  }
-
-  measure: y_axis_value {
-    label_from_parameter: y_axis_param
-    type: number
-    description: "To be used with scatter chart"
-    sql: {% if x_axis_param._parameter_value == "PCTFPOV" %}
-           ${households_in_poverty}/${number_of_households}
-           {% elsif x_axis_param._parameter_value == "AVGBILL" %}
-            ${avg_annual_bill_energy}
-            {% elsif x_axis_param._parameter_value == "POOREPC" %}
-             ${rating_agg_poor}/${rating_agg_all}
-            {% else %}
-            ${households_in_poverty}/${number_of_households}
             {% endif %};;
   }
 
@@ -424,6 +364,20 @@ view: a300_energy_bill_forecast_msoa_geo_v2 {
   measure: wavg_children_per_household {
     type: number
     sql: ${age_0_15}/${number_of_households} ;;
+    # html: {{msoa11_nm._rendered_value }};;
+    value_format: "0.0"
+  }
+
+  measure: wavg_pct_over_65 {
+    type: number
+    sql: ${age_65_above}/${all_ages} ;;
+    # html: {{msoa11_nm._rendered_value }};;
+    value_format: "0%"
+  }
+
+  measure: wavg_dependence_ratio {
+    type: number
+    sql: (${age_0_15}+${age_16_64})/${age_16_64} ;;
     # html: {{msoa11_nm._rendered_value }};;
     value_format: "0.0"
   }
