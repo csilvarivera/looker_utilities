@@ -12,14 +12,14 @@ view: a300_energy_bill_forecast_msoa_geo_v2 {
   parameter: heatmap_select_param {
     type:  unquoted
     description: "Independent Variable used in correlations"
-    allowed_value: {label: "Percentage of households in fuel poverty" value: "PCTFPOV"}
-    allowed_value: {label: "Net Annual Income After Housing Cost" value: "AHCI"}
+    allowed_value: {label: "Percentage of households in fuel poverty (%)" value: "PCTFPOV"}
+    allowed_value: {label: "Net Annual Income After Housing Cost (£)" value: "AHCI"}
     allowed_value: {label: "Average Household Size" value: "HSZE"}
-    allowed_value: {label: "Percentage of population over 65" value: "PC65"}
+    allowed_value: {label: "Percentage of population over 65 (%)" value: "PC65"}
     allowed_value: {label: "Dependence Ratio (Children + Old Age : Working Age Ratio)" value: "DEPRAT"}
     allowed_value: {label: "Children per household" value: "CPH"}
-    allowed_value: {label: "Percentage of after housing income spent on energy" value: "EPCT"}
-    allowed_value: {label: "Average Household Annual Energy Bill" value: "EBILL"}
+    allowed_value: {label: "Percentage of after housing income spent on energy (%)" value: "EPCT"}
+    allowed_value: {label: "Average Household Annual Energy Bill (£)" value: "EBILL"}
   }
 
 
@@ -34,13 +34,13 @@ view: a300_energy_bill_forecast_msoa_geo_v2 {
            {% elsif heatmap_select_param._parameter_value == "HSZE" %}
             ${wavg_household_size}
            {% elsif heatmap_select_param._parameter_value == "PC65" %}
-            ${wavg_pct_over_65}
+            ${wavg_pct_over_65}*100
            {% elsif heatmap_select_param._parameter_value == "DEPRAT" %}
             ${wavg_dependence_ratio}
              {% elsif heatmap_select_param._parameter_value == "CPH" %}
             ${wavg_children_per_household}
            {% elsif heatmap_select_param._parameter_value == "EPCT" %}
-            ${pct_after_housing_income_on_energy}
+            ${pct_after_housing_income_on_energy}*100
             {% elsif heatmap_select_param._parameter_value == "EBILL" %}
             ${wavg_households_bill_energy}
             {% else %}
