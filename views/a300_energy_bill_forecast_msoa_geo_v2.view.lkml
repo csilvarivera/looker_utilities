@@ -18,8 +18,8 @@ view: a300_energy_bill_forecast_msoa_geo_v2 {
     allowed_value: {label: "Percentage of population over 65 (%)" value: "PC65"}
     allowed_value: {label: "Dependence Ratio (Children + Old Age : Working Age Ratio)" value: "DEPRAT"}
     allowed_value: {label: "Children per household" value: "CPH"}
-    allowed_value: {label: "Percentage of after housing income spent on energy (%)" value: "EPCT"}
     allowed_value: {label: "Average Household Annual Energy Bill (£)" value: "EBILL"}
+    allowed_value: {label: "Percentage of after housing income spent on energy (%)" value: "EPCT"}
   }
 
 
