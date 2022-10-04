@@ -39,6 +39,8 @@ explore: a300_linmodel_precalc_ahci_fpov {}
 
 explore: a400_linmodel_precalc_ahci_fpov_geo {}
 
+explore: a200_psr_demo_geo {}
+
 explore: custom_navigation_buttons{}
 
 
