@@ -349,4 +349,11 @@ view: a200_psr_demo_geo {
     type: string
     sql: ${TABLE}.wz11cd ;;
   }
+
+  dimension: address_latlong{
+    type: location
+    sql_latitude: ${lat};;
+    sql_longitude: ${lon};;
+    html: {{uprn._rendered_value }};;
+  }
 }
