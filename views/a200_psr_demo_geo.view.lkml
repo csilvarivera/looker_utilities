@@ -15,11 +15,11 @@ view: a200_psr_demo_geo {
   parameter: company_select_param{
     type:  unquoted
     description: "Select company"
-    allowed_value: {label: "British Gas" value: "BGAS"}
-    allowed_value: {label: "Cadent" value: "CAD"}
+    allowed_value: {label: "British Gas" value: "British Gas"}
+    allowed_value: {label: "Cadent" value: "Cadent"}
     allowed_value: {label: "EDF" value: "EDF"}
     allowed_value: {label: "EON" value: "EON"}
-    allowed_value: {label: "Thames Water" value: "THAM"}
+    allowed_value: {label: "Thames Water" value: "Thames Water"}
     allowed_value: {label: "UKPN" value: "UKPN"}
   }
 
@@ -28,15 +28,15 @@ view: a200_psr_demo_geo {
     label_from_parameter: company_select_param
     type: string
     description: "To be used with scatter chart"
-    sql: {% if company_select_param._parameter_value == "BGAS" %}
+    sql: {% if company_select_param._parameter_value == "British Gas" %}
               IF(${company_name}="British Gas","Internal PSR","External PSR")
-            {% elsif company_select_param._parameter_value == "CAD" %}
+            {% elsif company_select_param._parameter_value == "Cadent" %}
              IF(${company_name}="Cadent","Internal PSR","External PSR")
            {% elsif company_select_param._parameter_value == "EDF" %}
               IF(${company_name}="EDF","Internal PSR","External PSR")
            {% elsif company_select_param._parameter_value == "EON" %}
             IF(${company_name}="EON","Internal PSR","External PSR")
-           {% elsif company_select_param._parameter_value == "THAM" %}
+           {% elsif company_select_param._parameter_value == "Thames Water" %}
              IF(${company_name}="Thames Water","Internal PSR","External PSR")
             {% else %}
               IF(${company_name}="UKPN Water","Internal PSR","External PSR")
@@ -81,6 +81,7 @@ view: a200_psr_demo_geo {
   }
 
   dimension: company_name {
+    label_from_parameter: company_select_param
     type: string
     sql: ${TABLE}.COMPANY_NAME ;;
   }
