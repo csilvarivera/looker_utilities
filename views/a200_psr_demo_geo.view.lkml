@@ -320,11 +320,6 @@ view: a200_psr_demo_geo {
     sql: ${TABLE}.UPRN ;;
   }
 
-  dimension: uprn_1 {
-    type: number
-    sql: ${TABLE}.uprn_1 ;;
-  }
-
   dimension: uprn_geo {
     type: string
     sql: ${TABLE}.uprn_geo ;;
