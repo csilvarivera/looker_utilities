@@ -11,6 +11,39 @@ view: a200_psr_demo_geo {
   # A dimension is a groupable field that can be used to filter query results.
   # This dimension will be called "Age Related" in Explore.
 
+  # Parameters
+  parameter: company_select_param{
+    type:  unquoted
+    description: "Select company"
+    allowed_value: {label: "British Gas" value: "BGAS"}
+    allowed_value: {label: "Cadent" value: "CAD"}
+    allowed_value: {label: "EDF" value: "EDF"}
+    allowed_value: {label: "EON" value: "EON"}
+    allowed_value: {label: "Thames Water" value: "THAM"}
+    allowed_value: {label: "UKPN" value: "UKPN"}
+  }
+
+
+  measure: company_select_value {
+    label_from_parameter: company_select_param
+    type: number
+    description: "To be used with scatter chart"
+    sql: {% if company_select_param._parameter_value == "BGAS" %}
+              IF(${company_name}="British Gas",True,False)
+            {% elsif company_select_param._parameter_value == "CAD" %}
+             IF(${company_name}="Cadent",True,False)
+           {% elsif company_select_param._parameter_value == "EDF" %}
+              IF(${company_name}="EDF",True,False)
+           {% elsif company_select_param._parameter_value == "EON" %}
+            IF(${company_name}="EON",True,False)
+           {% elsif company_select_param._parameter_value == "THAM" %}
+             IF(${company_name}="Thames Water",True,False)
+            {% else %}
+              IF(${company_name}="UKPN Water",True,False)
+            {% endif %};;
+  }
+
+
 
   dimension: age_related {
     type: yesno
