@@ -253,6 +253,11 @@ view: a200_psr_demo_geo {
     sql: ${TABLE}.MSOA11CD ;;
   }
 
+  dimension: msoa11_nm {
+    type: string
+    sql: ${TABLE}.MSOA11nm ;;
+  }
+
   dimension: northings {
     type: number
     sql: ${TABLE}.NORTHINGS ;;
