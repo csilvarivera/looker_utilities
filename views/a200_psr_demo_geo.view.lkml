@@ -314,12 +314,12 @@ view: a200_psr_demo_geo {
 
   measure: vulnerability_details {
     type: string
-    sql: ${TABLE}.VULNERABILITY_DETAILS ;;
+    sql: max(${TABLE}.VULNERABILITY_DETAILS) ;;
   }
 
   measure: vulnerable_category {
     type: string
-    sql: ${TABLE}.VULNERABLE_CATEGORY ;;
+    sql: max(${TABLE}.VULNERABLE_CATEGORY)  ;;
   }
 
   dimension: wd19_cd {
