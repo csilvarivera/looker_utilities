@@ -24,7 +24,7 @@ view: a200_psr_demo_geo {
   }
 
 
-  dimension: is_my_company {
+  dimension: internal_or_external {
     type: string
     description: "To be used with scatter chart"
     sql: {% if company_select_param._parameter_value == "'British Gas'" %}
@@ -40,7 +40,7 @@ view: a200_psr_demo_geo {
             {% else %}
               IF(${company_name}="UKPN","Internal","External")
             {% endif %};;
-    html:.  ;;
+    html: {{internal_or_external._rendered_value}}  ;;
   }
 
 
@@ -83,7 +83,7 @@ view: a200_psr_demo_geo {
   dimension: company_name {
     type: string
     sql: ${TABLE}.COMPANY_NAME ;;
-    html: {{ is_my_company._rendered_value }}: {{ company_name._rendered_value }};;
+    html: {{ company_name._rendered_value }};;
   }
 
   dimension: company_name_nolist {
