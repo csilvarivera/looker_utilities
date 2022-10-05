@@ -26,20 +26,20 @@ view: a200_psr_demo_geo {
 
   dimension: is_my_company {
     label_from_parameter: company_select_param
-    type: number
+    type: string
     description: "To be used with scatter chart"
     sql: {% if company_select_param._parameter_value == "BGAS" %}
-              IF(${company_name}="British Gas",True,False)
+              IF(${company_name}="British Gas","Internal PSR","External PSR")
             {% elsif company_select_param._parameter_value == "CAD" %}
-             IF(${company_name}="Cadent",True,False)
+             IF(${company_name}="Cadent","Internal PSR","External PSR")
            {% elsif company_select_param._parameter_value == "EDF" %}
-              IF(${company_name}="EDF",True,False)
+              IF(${company_name}="EDF","Internal PSR","External PSR")
            {% elsif company_select_param._parameter_value == "EON" %}
-            IF(${company_name}="EON",True,False)
+            IF(${company_name}="EON","Internal PSR","External PSR")
            {% elsif company_select_param._parameter_value == "THAM" %}
-             IF(${company_name}="Thames Water",True,False)
+             IF(${company_name}="Thames Water","Internal PSR","External PSR")
             {% else %}
-              IF(${company_name}="UKPN Water",True,False)
+              IF(${company_name}="UKPN Water","Internal PSR","External PSR")
             {% endif %};;
   }
 
