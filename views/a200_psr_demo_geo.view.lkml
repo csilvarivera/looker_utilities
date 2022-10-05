@@ -16,14 +16,14 @@ view: a200_psr_demo_geo {
     sql: ${TABLE}.AGE_RELATED ;;
   }
 
-  dimension: bua11cd {
+  dimension: bua11_cd {
     type: string
-    sql: ${TABLE}.bua11cd ;;
+    sql: ${TABLE}.BUA11CD ;;
   }
 
-  dimension: buasd11cd {
+  dimension: buasd11_cd {
     type: string
-    sql: ${TABLE}.buasd11cd ;;
+    sql: ${TABLE}.BUASD11CD ;;
   }
 
   dimension: category {
@@ -31,14 +31,14 @@ view: a200_psr_demo_geo {
     sql: ${TABLE}.CATEGORY ;;
   }
 
-  dimension: ccg17cd {
+  dimension: ccg17_cd {
     type: string
-    sql: ${TABLE}.ccg17cd ;;
+    sql: ${TABLE}.CCG17CD ;;
   }
 
-  dimension: ced17cd {
+  dimension: ced17_cd {
     type: string
-    sql: ${TABLE}.ced17cd ;;
+    sql: ${TABLE}.CED17CD ;;
   }
 
   dimension: communication_need {
@@ -56,14 +56,14 @@ view: a200_psr_demo_geo {
     sql: ${TABLE}.COMPANY_TYPE ;;
   }
 
-  dimension: ctry11cd {
+  dimension: ctry11_cd {
     type: string
-    sql: ${TABLE}.ctry11cd ;;
+    sql: ${TABLE}.CTRY11CD ;;
   }
 
-  dimension: cty21cd {
+  dimension: cty21_cd {
     type: string
-    sql: ${TABLE}.cty21cd ;;
+    sql: ${TABLE}.CTY21CD ;;
   }
 
   dimension: date_inserted {
@@ -78,12 +78,12 @@ view: a200_psr_demo_geo {
 
   dimension: eastings {
     type: number
-    sql: ${TABLE}.eastings ;;
+    sql: ${TABLE}.EASTINGS ;;
   }
 
-  dimension: eer11cd {
+  dimension: eer11_cd {
     type: string
-    sql: ${TABLE}.eer11cd ;;
+    sql: ${TABLE}.EER11CD ;;
   }
 
   dimension: email_address {
@@ -103,32 +103,32 @@ view: a200_psr_demo_geo {
 
   dimension: formatted_address {
     type: string
-    sql: ${TABLE}.formatted_address ;;
+    sql: ${TABLE}.FORMATTED_ADDRESS ;;
   }
 
   dimension: gcd_locality {
     type: string
-    sql: ${TABLE}.gcd_locality ;;
+    sql: ${TABLE}.GCD_LOCALITY ;;
   }
 
   dimension: gcd_postal_code {
     type: string
-    sql: ${TABLE}.gcd_postal_code ;;
+    sql: ${TABLE}.GCD_POSTAL_CODE ;;
   }
 
   dimension: gcd_postal_town {
     type: string
-    sql: ${TABLE}.gcd_postal_town ;;
+    sql: ${TABLE}.GCD_POSTAL_TOWN ;;
   }
 
   dimension: gcd_route {
     type: string
-    sql: ${TABLE}.gcd_route ;;
+    sql: ${TABLE}.GCD_ROUTE ;;
   }
 
   dimension: gcd_street_number {
     type: string
-    sql: ${TABLE}.gcd_street_number ;;
+    sql: ${TABLE}.GCD_STREET_NUMBER ;;
   }
 
   dimension: health_condition {
@@ -136,14 +136,14 @@ view: a200_psr_demo_geo {
     sql: ${TABLE}.HEALTH_CONDITION ;;
   }
 
-  dimension: hlth19cd {
+  dimension: hlth19_cd {
     type: string
-    sql: ${TABLE}.hlth19cd ;;
+    sql: ${TABLE}.HLTH19CD ;;
   }
 
-  dimension: imd19ind {
+  dimension: imd19_ind {
     type: number
-    sql: ${TABLE}.imd19ind ;;
+    sql: ${TABLE}.IMD19IND ;;
   }
 
   dimension: index {
@@ -151,49 +151,49 @@ view: a200_psr_demo_geo {
     sql: ${TABLE}.INDEX ;;
   }
 
-  dimension: itl21cd {
+  dimension: itl21_cd {
     type: string
-    sql: ${TABLE}.itl21cd ;;
+    sql: ${TABLE}.ITL21CD ;;
   }
 
-  dimension: lad21cd {
+  dimension: lad21_cd {
     type: string
-    sql: ${TABLE}.lad21cd ;;
+    sql: ${TABLE}.LAD21CD ;;
   }
 
-  dimension: lad21nm {
+  dimension: lad21_nm {
     type: string
-    sql: ${TABLE}.lad21nm ;;
+    sql: ${TABLE}.LAD21NM ;;
   }
 
   dimension: lat {
     type: number
-    sql: ${TABLE}.lat ;;
+    sql: ${TABLE}.LAT ;;
   }
 
-  dimension: lep17cd1 {
+  dimension: lep17_cd1 {
     type: string
-    sql: ${TABLE}.lep17cd1 ;;
+    sql: ${TABLE}.LEP17CD1 ;;
   }
 
-  dimension: lep17cd2 {
+  dimension: lep17_cd2 {
     type: string
-    sql: ${TABLE}.lep17cd2 ;;
+    sql: ${TABLE}.LEP17CD2 ;;
   }
 
   dimension: location_type {
     type: string
-    sql: ${TABLE}.location_type ;;
+    sql: ${TABLE}.LOCATION_TYPE ;;
   }
 
   dimension: lon {
     type: number
-    sql: ${TABLE}.lon ;;
+    sql: ${TABLE}.LON ;;
   }
 
-  dimension: lsoa11cd {
+  dimension: lsoa11_cd {
     type: string
-    sql: ${TABLE}.lsoa11cd ;;
+    sql: ${TABLE}.LSOA11CD ;;
   }
 
   dimension: medical_electricity_dependent {
@@ -211,63 +211,49 @@ view: a200_psr_demo_geo {
     sql: ${TABLE}.MOBILITY_RELATED ;;
   }
 
-  dimension: msoa11cd {
+  dimension: msoa11_cd {
     type: string
-    sql: ${TABLE}.msoa11cd ;;
+    sql: ${TABLE}.MSOA11CD ;;
   }
 
   dimension: northings {
     type: number
-    sql: ${TABLE}.northings ;;
+    sql: ${TABLE}.NORTHINGS ;;
   }
 
-  dimension: npark16cd {
+  dimension: npark16_cd {
     type: string
-    sql: ${TABLE}.npark16cd ;;
+    sql: ${TABLE}.NPARK16CD ;;
   }
 
-  dimension: oa11cd {
+  dimension: oa11_cd {
     type: string
-    sql: ${TABLE}.oa11cd ;;
+    sql: ${TABLE}.OA11CD ;;
   }
 
-  dimension: oac11ind {
+  dimension: oac11_ind {
     type: string
-    sql: ${TABLE}.oac11ind ;;
+    sql: ${TABLE}.OAC11IND ;;
   }
 
   dimension: pcds {
     type: string
-    sql: ${TABLE}.pcds ;;
+    sql: ${TABLE}.PCDS ;;
   }
 
-  dimension: pcon11cd {
+  dimension: pcon11_cd {
     type: string
-    sql: ${TABLE}.pcon11cd ;;
+    sql: ${TABLE}.PCON11CD ;;
   }
 
-  dimension: pfa15cd {
+  dimension: pfa15_cd {
     type: string
-    sql: ${TABLE}.pfa15cd ;;
+    sql: ${TABLE}.PFA15CD ;;
   }
 
   dimension: phone_number {
     type: number
     sql: ${TABLE}.PHONE_NUMBER ;;
-  }
-
-  # A measure is a field that uses a SQL aggregate function. Here are defined sum and average
-  # measures for this dimension, but you can also add measures of many different aggregates.
-  # Click on the type parameter to see all the options in the Quick Help panel on the right.
-
-  measure: total_phone_number {
-    type: sum
-    sql: ${phone_number} ;;
-  }
-
-  measure: average_phone_number {
-    type: average
-    sql: ${phone_number} ;;
   }
 
   dimension: product_type {
@@ -277,17 +263,17 @@ view: a200_psr_demo_geo {
 
   dimension: result {
     type: string
-    sql: ${TABLE}.result ;;
+    sql: ${TABLE}.RESULT ;;
   }
 
-  dimension: rgn11cd {
+  dimension: rgn11_cd {
     type: string
-    sql: ${TABLE}.rgn11cd ;;
+    sql: ${TABLE}.RGN11CD ;;
   }
 
-  dimension: ruc11ind {
+  dimension: ruc11_ind {
     type: string
-    sql: ${TABLE}.ruc11ind ;;
+    sql: ${TABLE}.RUC11IND ;;
   }
 
   dimension: safety_related {
@@ -310,9 +296,9 @@ view: a200_psr_demo_geo {
     sql: ${TABLE}.TITLE ;;
   }
 
-  dimension: ttwa15cd {
+  dimension: ttwa15_cd {
     type: string
-    sql: ${TABLE}.ttwa15cd ;;
+    sql: ${TABLE}.TTWA15CD ;;
   }
 
   dimension: uprn {
@@ -322,7 +308,7 @@ view: a200_psr_demo_geo {
 
   dimension: uprn_geo {
     type: string
-    sql: ${TABLE}.uprn_geo ;;
+    sql: ${TABLE}.UPRN_GEO ;;
   }
 
   dimension: vulnerability_details {
@@ -335,14 +321,14 @@ view: a200_psr_demo_geo {
     sql: ${TABLE}.VULNERABLE_CATEGORY ;;
   }
 
-  dimension: wd19cd {
+  dimension: wd19_cd {
     type: string
-    sql: ${TABLE}.wd19cd ;;
+    sql: ${TABLE}.WD19CD ;;
   }
 
-  dimension: wz11cd {
+  dimension: wz11_cd {
     type: string
-    sql: ${TABLE}.wz11cd ;;
+    sql: ${TABLE}.WZ11CD ;;
   }
 
   dimension: address_latlong{
@@ -351,4 +337,6 @@ view: a200_psr_demo_geo {
     sql_longitude: ${lon};;
     html: {{uprn._rendered_value }};;
   }
+
+
 }
