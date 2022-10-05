@@ -83,7 +83,9 @@ view: a200_psr_demo_geo {
   dimension: company_name {
     type: string
     sql: ${TABLE}.COMPANY_NAME ;;
-    html:  "" ;;
+    html: <ul>
+      <li> {{ is_my_company._rendered_value }}: {{ company_name._rendered_value }} </li>
+    </ul> ;;
   }
 
   dimension: company_type {
