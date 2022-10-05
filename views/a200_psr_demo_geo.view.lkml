@@ -29,18 +29,19 @@ view: a200_psr_demo_geo {
     type: string
     description: "To be used with scatter chart"
     sql: {% if company_select_param._parameter_value == "'British Gas'" %}
-              IF(${company_name}="British Gas","Internal PSR","External PSR")
+              IF(${company_name}="British Gas","Internal","External")
             {% elsif company_select_param._parameter_value == "'Cadent'" %}
-             IF(${company_name}="Cadent","Internal PSR","External PSR")
+             IF(${company_name}="Cadent","Internal","External")
            {% elsif company_select_param._parameter_value == "'EDF'" %}
-              IF(${company_name}="EDF","Internal PSR","External PSR")
+              IF(${company_name}="EDF","Internal","External")
            {% elsif company_select_param._parameter_value == "'EON'" %}
-            IF(${company_name}="EON","Internal PSR","External PSR")
+            IF(${company_name}="EON","Internal","External")
            {% elsif company_select_param._parameter_value == "'Thames Water'" %}
-             IF(${company_name}="Thames Water","Internal PSR","External PSR")
+             IF(${company_name}="Thames Water","Internal","External ")
             {% else %}
-              IF(${company_name}="UKPN","Internal PSR","External PSR")
+              IF(${company_name}="UKPN","Internal","External")
             {% endif %};;
+    html:.  ;;
   }
 
 
