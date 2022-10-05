@@ -24,7 +24,7 @@ view: a200_psr_demo_geo {
   }
 
 
-  measure: company_select_value {
+  dimension: is_my_company {
     label_from_parameter: company_select_param
     type: number
     description: "To be used with scatter chart"
