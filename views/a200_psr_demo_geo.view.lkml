@@ -312,12 +312,12 @@ view: a200_psr_demo_geo {
     sql: ${TABLE}.UPRN_GEO ;;
   }
 
-  dimension: vulnerability_details {
+  measure: vulnerability_details {
     type: string
     sql: ${TABLE}.VULNERABILITY_DETAILS ;;
   }
 
-  dimension: vulnerable_category {
+  measure: vulnerable_category {
     type: string
     sql: ${TABLE}.VULNERABLE_CATEGORY ;;
   }
