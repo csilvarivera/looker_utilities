@@ -25,7 +25,6 @@ view: a200_psr_demo_geo {
 
 
   dimension: is_my_company {
-    label_from_parameter: company_select_param
     type: string
     description: "To be used with scatter chart"
     sql: {% if company_select_param._parameter_value == "'British Gas'" %}
