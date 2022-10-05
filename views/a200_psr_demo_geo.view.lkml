@@ -13,7 +13,7 @@ view: a200_psr_demo_geo {
 
   # Parameters
   parameter: company_select_param{
-    type:  unquoted
+    type:  string
     description: "Select company"
     allowed_value: {label: "British Gas" value: "British Gas"}
     allowed_value: {label: "Cadent" value: "Cadent"}
