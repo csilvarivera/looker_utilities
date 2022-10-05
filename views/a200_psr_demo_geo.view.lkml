@@ -370,7 +370,12 @@ view: a200_psr_demo_geo {
     type: location
     sql_latitude: ${lat};;
     sql_longitude: ${lon};;
-    html: {{uprn._rendered_value }};;
+    html:
+      <ul>
+        <li> UPRN: {{uprn._rendered_value }} </li>
+        <li> formatted_address: {{ formatted_address._rendered_value }} </li>
+      </ul>
+    ;;
   }
 
 
