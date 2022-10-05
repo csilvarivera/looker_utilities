@@ -81,9 +81,9 @@ view: a200_psr_demo_geo {
   }
 
   dimension: company_name {
-    label_from_parameter: company_select_param
     type: string
     sql: ${TABLE}.COMPANY_NAME ;;
+    html:  "" ;;
   }
 
   dimension: company_type {
