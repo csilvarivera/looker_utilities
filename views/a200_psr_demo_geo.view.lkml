@@ -355,7 +355,6 @@ view: a200_psr_demo_geo {
     <ul>
       <li> Priority Category: {{ vulnerable_category._rendered_value }} </li>
       <li> Priority Detail: {{ vulnerability_details._rendered_value }} </li>
-      <li> {{ is_my_company._rendered_value }}: {{ company_name._rendered_value }} </li>
     </ul>
     ;;
   }
