@@ -47,7 +47,7 @@ view: a200_psr_demo_geo {
     sql: ${TABLE}.COMMUNICATION_NEED ;;
   }
 
-  measure: company_name {
+  dimension: company_name {
     type: string
     sql: ${TABLE}.COMPANY_NAME ;;
   }
