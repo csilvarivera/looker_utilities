@@ -11,6 +11,7 @@ view: a200_psr_demo_geo {
   # A dimension is a groupable field that can be used to filter query results.
   # This dimension will be called "Age Related" in Explore.
 
+
   dimension: age_related {
     type: yesno
     sql: ${TABLE}.AGE_RELATED ;;
@@ -46,7 +47,7 @@ view: a200_psr_demo_geo {
     sql: ${TABLE}.COMMUNICATION_NEED ;;
   }
 
-  dimension: company_name {
+  measure: company_name {
     type: string
     sql: ${TABLE}.COMPANY_NAME ;;
   }
