@@ -83,9 +83,12 @@ view: a200_psr_demo_geo {
   dimension: company_name {
     type: string
     sql: ${TABLE}.COMPANY_NAME ;;
-    html: <ul>
-      <li> {{ is_my_company._rendered_value }}: {{ company_name._rendered_value }} </li>
-    </ul> ;;
+    html: {{ is_my_company._rendered_value }}: {{ company_name._rendered_value }};;
+  }
+
+  dimension: company_name_nolist {
+    type: string
+    sql: ${TABLE}.COMPANY_NAME ;;
   }
 
   dimension: company_type {
@@ -394,6 +397,14 @@ view: a200_psr_demo_geo {
         <li> UPRN: {{uprn._rendered_value }} </li>
         <li> Address: {{ formatted_address._rendered_value }} </li>
       </ul>
+    ;;
+  }
+
+  dimension: address_latlong_oneline{
+    type: location
+    sql_latitude: ${lat};;
+    sql_longitude: ${lon};;
+    html:{{ formatted_address._rendered_value }}
     ;;
   }
 
