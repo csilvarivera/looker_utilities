@@ -365,6 +365,11 @@ view: a200_psr_demo_geo {
     ;;
   }
 
+  measure: vulnerability_details_nolist {
+    type: string
+    sql: max(${TABLE}.VULNERABILITY_DETAILS) ;;
+  }
+
   measure: vulnerable_category {
     type: string
     sql: max(${TABLE}.VULNERABLE_CATEGORY)  ;;
