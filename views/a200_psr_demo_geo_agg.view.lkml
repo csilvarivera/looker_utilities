@@ -364,6 +364,8 @@ view: a200_psr_demo_geo_agg {
 
   dimension: vulnerability_details_nolist_dimension {
     type: string
+    sql: ${TABLE}.VULNERABILITY_DETAILS ;;
+
   }
 
   measure: vulnerable_category {
@@ -371,7 +373,7 @@ view: a200_psr_demo_geo_agg {
     sql: max(${TABLE}.VULNERABLE_CATEGORY)  ;;
   }
 
-  measure: vulnerable_category_dimension {
+  dimension: vulnerable_category_dimension {
     type: string
     sql: ${TABLE}.VULNERABLE_CATEGORY;;
   }

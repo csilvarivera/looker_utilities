@@ -21,6 +21,10 @@ view: custom_navigation_buttons {
           <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="https://googlecloud.looker.com/embed/dashboards/1605">Interactive Heatmap</a>
           <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="https://googlecloud.looker.com/embed/dashboards/1606">Predictive Model</a>
           <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="https://googlecloud.looker.com/embed/dashboards/1607">Regional Drilldown</a>
+          <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="https://googlecloud.looker.com/embed/dashboards/1619">Mock PSR - Utilities View</a>
+          <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="https://googlecloud.looker.com/embed/dashboards/1625">Mock PSR - Aggregation View</a>
+
+
         </nav>
       </div>
     <div style="background-color: #F6F6F7; height:500px;width:100%"></div>;;
