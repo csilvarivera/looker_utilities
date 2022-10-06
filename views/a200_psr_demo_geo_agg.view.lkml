@@ -34,7 +34,6 @@ view: a200_psr_demo_geo_agg {
     <ul>
       <li> Local Authority: {{ ladnm._rendered_value }} </li>
       <li> MSOA: {{ msoa11_nm._rendered_value }} </li>
-      <li> % HH in Fuel Poverty: {{ pct_households_fuel_poverty._rendered_value }} </li>
     </ul>;;
   }
 
@@ -227,8 +226,14 @@ view: a200_psr_demo_geo_agg {
   measure: uprn_count {
     type: count_distinct
     sql: ${TABLE}.uprn ;;
+    html:  Number of households in PSR: {{uprn_count._rendered_value }};;
   }
 
+  measure: pct_households_psr {
+    type: number
+    sql: ${uprn_count}/${number_of_households} ;;
+    value_format: "0%"
+  }
 
   dimension: pop_annual_bill_elec {
     type: number
