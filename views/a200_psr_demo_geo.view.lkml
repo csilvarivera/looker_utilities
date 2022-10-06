@@ -49,6 +49,12 @@ view: a200_psr_demo_geo {
     sql:  ${internal_or_external} ;;
   }
 
+  measure: only_external {
+    type:  yesno
+    description: "Does this UPRN exist only internally"
+    sql:  AND(${internal_or_external}<2, ${internal_or_external}="External") ;;
+  }
+
   dimension: age_related {
     type: yesno
     sql: ${TABLE}.AGE_RELATED ;;
