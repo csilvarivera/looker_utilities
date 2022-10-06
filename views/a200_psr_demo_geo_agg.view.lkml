@@ -30,7 +30,19 @@ view: a200_psr_demo_geo_agg {
     type: location
     sql_latitude: ${msoa_geo_centroid_lat};;
     sql_longitude: ${msoa_geo_centroid_lon};;
-    html: {{msoa11_nm._rendered_value }};;
+    html:
+    <ul>
+      <li> Local Authority: {{ ladnm._rendered_value }} </li>
+      <li> MSOA: {{ msoa11_nm._rendered_value }} </li>
+      <li> % HH in Fuel Poverty: {{ pct_households_fuel_poverty._rendered_value }} </li>
+    </ul>;;
+  }
+
+  dimension: msoa_latlong_oneline{
+    type: location
+    sql_latitude: ${msoa_geo_centroid_lat};;
+    sql_longitude: ${msoa_geo_centroid_lon};;
+    html: {{ msoa11_nm._rendered_value }};;
   }
 
   measure: age_0_15 {
@@ -212,6 +224,12 @@ view: a200_psr_demo_geo_agg {
     sql: ${TABLE}.PCDS ;;
   }
 
+  measure: uprn_count {
+    type: count_distinct
+    sql: ${TABLE}.uprn ;;
+  }
+
+
   dimension: pop_annual_bill_elec {
     type: number
     sql: ${TABLE}.POP_ANNUAL_BILL_ELEC ;;
@@ -305,6 +323,7 @@ view: a200_psr_demo_geo_agg {
   dimension: uprn {
     type: number
     sql: ${TABLE}.UPRN ;;
+    value_format: "0"
   }
 
   measure: vulnerability_details {
