@@ -60,6 +60,12 @@ view: a200_psr_demo_geo {
     sql:  ${internal_count_distinct}<2 AND ${internal_or_external_measure} = "External" ;;
   }
 
+  measure: name_redact {
+    type:  string
+    description: "Redact name"
+    sql:  if(${a200_psr_demo_geo.only_external}, "***", concat(${a200_psr_demo_geo.first_name}, " ", ${a200_psr_demo_geo.surname})) ;;
+  }
+
   dimension: age_related {
     type: yesno
     sql: ${TABLE}.AGE_RELATED ;;
