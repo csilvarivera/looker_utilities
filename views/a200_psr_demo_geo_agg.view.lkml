@@ -65,22 +65,23 @@ view: a200_psr_demo_geo_agg {
   }
 
   measure: all_ages {
-    type: number
+    type: average
     sql: ${TABLE}.ALL_AGES ;;
   }
 
   measure: avg_annual_bill_elec {
-    type: number
+    type: average
     sql: ${TABLE}.AVG_ANNUAL_BILL_ELEC ;;
   }
 
   measure: avg_annual_bill_energy {
-    type: number
+    type: average
     sql: ${TABLE}.AVG_ANNUAL_BILL_ENERGY ;;
+    value_format: "\"£\"#,##0"
   }
 
   measure: avg_annual_bill_gas {
-    type: number
+    type: average
     sql: ${TABLE}.AVG_ANNUAL_BILL_GAS ;;
   }
 
@@ -125,7 +126,7 @@ view: a200_psr_demo_geo_agg {
   }
 
   measure: households_in_poverty {
-    type: number
+    type: average
     sql: ${TABLE}.HOUSEHOLDS_IN_POVERTY ;;
   }
 
@@ -139,8 +140,10 @@ view: a200_psr_demo_geo_agg {
   # Click on the type parameter to see all the options in the Quick Help panel on the right.
 
   measure: income_after_housing_energy {
-    type: number
+    type: max
     sql: ${TABLE}.INCOME_AFTER_HOUSING_ENERGY ;;
+    value_format: "\"£\"#,##0"
+
   }
 
   dimension: index {
@@ -209,7 +212,7 @@ view: a200_psr_demo_geo_agg {
   }
 
   measure: number_of_households {
-    type: sum
+    type: max
     sql: ${TABLE}.NUMBER_OF_HOUSEHOLDS ;;
   }
 
@@ -229,10 +232,22 @@ view: a200_psr_demo_geo_agg {
     html:  Number of households in PSR: {{uprn_count._rendered_value }};;
   }
 
+  measure: uprn_count_justnum {
+    type: count_distinct
+    sql: ${TABLE}.uprn ;;
+  }
+
   measure: pct_households_psr {
     type: number
     sql: ${uprn_count}/${number_of_households} ;;
-    value_format: "0%"
+    value_format: "0.00%"
+    html:  Percentage of household in PSR: {{pct_households_psr._rendered_value }};;
+  }
+
+  measure: pct_households_psr_justpct {
+    type: number
+    sql: ${uprn_count}/${number_of_households} ;;
+    value_format: "0.00%"
   }
 
   measure: pop_annual_bill_elec {
@@ -347,9 +362,18 @@ view: a200_psr_demo_geo_agg {
     sql: max(${TABLE}.VULNERABILITY_DETAILS) ;;
   }
 
+  dimension: vulnerability_details_nolist_dimension {
+    type: string
+  }
+
   measure: vulnerable_category {
     type: string
     sql: max(${TABLE}.VULNERABLE_CATEGORY)  ;;
+  }
+
+  measure: vulnerable_category_dimension {
+    type: string
+    sql: ${TABLE}.VULNERABLE_CATEGORY;;
   }
 
   dimension: year {
