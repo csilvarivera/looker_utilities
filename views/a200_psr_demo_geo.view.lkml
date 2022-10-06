@@ -43,7 +43,11 @@ view: a200_psr_demo_geo {
     html: {{internal_or_external._rendered_value}}  ;;
   }
 
-
+  measure: internal_count_distinct {
+    type:  count_distinct
+    description: "Does this UPRN exist only externally"
+    sql:  ${internal_or_external} ;;
+  }
 
   dimension: age_related {
     type: yesno
