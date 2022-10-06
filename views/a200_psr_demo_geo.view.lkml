@@ -43,6 +43,11 @@ view: a200_psr_demo_geo {
     html: {{internal_or_external._rendered_value}}  ;;
   }
 
+  measure: internal_or_external_measure {
+    type: max
+    sql:  ${internal_or_external} ;;
+  }
+
   measure: internal_count_distinct {
     type:  count_distinct
     description: "Does this UPRN exist only externally"
@@ -52,7 +57,7 @@ view: a200_psr_demo_geo {
   measure: only_external {
     type:  yesno
     description: "Does this UPRN exist only internally"
-    sql:  AND(${internal_or_external}<2, ${internal_or_external}="External") ;;
+    sql:  ${internal_count_distinct}<2 AND ${internal_or_external_measure} = "External" ;;
   }
 
   dimension: age_related {
