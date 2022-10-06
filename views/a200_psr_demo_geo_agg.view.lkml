@@ -209,7 +209,7 @@ view: a200_psr_demo_geo_agg {
   }
 
   measure: number_of_households {
-    type: number
+    type: sum
     sql: ${TABLE}.NUMBER_OF_HOUSEHOLDS ;;
   }
 
@@ -235,63 +235,63 @@ view: a200_psr_demo_geo_agg {
     value_format: "0%"
   }
 
-  dimension: pop_annual_bill_elec {
-    type: number
+  measure: pop_annual_bill_elec {
+    type: sum
     sql: ${TABLE}.POP_ANNUAL_BILL_ELEC ;;
   }
 
-  dimension: pop_annual_bill_energy {
-    type: number
+  measure: pop_annual_bill_energy {
+    type: sum
     sql: ${TABLE}.POP_ANNUAL_BILL_ENERGY ;;
   }
 
-  dimension: pop_annual_bill_gas {
-    type: number
+  measure: pop_annual_bill_gas {
+    type: sum
     sql: ${TABLE}.POP_ANNUAL_BILL_GAS ;;
   }
 
   measure: pop_housing_cost {
-    type: number
+    type: sum
     sql: ${TABLE}.POP_HOUSING_COST ;;
   }
 
   measure: pop_income_after_housing_energy {
-    type: number
+    type: sum
     sql: ${TABLE}.POP_INCOME_AFTER_HOUSING_ENERGY ;;
   }
 
   measure: pop_net_annual_income {
-    type: number
+    type: sum
     sql: ${TABLE}.POP_NET_ANNUAL_INCOME ;;
   }
 
   measure: pop_net_annual_income_after_housing_costs {
-    type: number
+    type: sum
     sql: ${TABLE}.POP_NET_ANNUAL_INCOME_AFTER_HOUSING_COSTS ;;
   }
 
   measure: pop_net_income_before_housing_costs {
-    type: number
+    type: sum
     sql: ${TABLE}.POP_NET_INCOME_BEFORE_HOUSING_COSTS ;;
   }
 
   measure: pop_total_annual_income {
-    type: number
+    type: sum
     sql: ${TABLE}.POP_TOTAL_ANNUAL_INCOME ;;
   }
 
-  dimension: rating_agg_all {
-    type: number
+  measure: rating_agg_all {
+    type: sum
     sql: ${TABLE}.RATING_AGG_ALL ;;
   }
 
   measure: rating_agg_good {
-    type: number
+    type: sum
     sql: ${TABLE}.RATING_AGG_GOOD ;;
   }
 
   measure: rating_agg_poor {
-    type: number
+    type: sum
     sql: ${TABLE}.RATING_AGG_POOR ;;
   }
 
@@ -320,8 +320,8 @@ view: a200_psr_demo_geo_agg {
     sql: ${TABLE}.TEMPORARY_REGISTRATION ;;
   }
 
-  dimension: total_annual_income {
-    type: number
+  measure: total_annual_income {
+    type: sum
     sql: ${TABLE}.TOTAL_ANNUAL_INCOME ;;
   }
 
