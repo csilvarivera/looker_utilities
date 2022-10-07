@@ -23,7 +23,6 @@ view: a200_psr_demo_geo {
     allowed_value: {label: "UKPN" value: "UKPN"}
   }
 
-
   dimension: internal_or_external {
     type: string
     description: "To be used with scatter chart"
@@ -43,10 +42,12 @@ view: a200_psr_demo_geo {
     html: {{internal_or_external._rendered_value}}  ;;
   }
 
+
   measure: internal_or_external_measure {
     type: max
     sql:  ${internal_or_external} ;;
   }
+
 
   measure: internal_count_distinct {
     type:  count_distinct
@@ -374,9 +375,8 @@ view: a200_psr_demo_geo {
   }
 
   dimension: uprn {
-    type: number
+    type: string
     sql: ${TABLE}.UPRN;;
-    value_format: "0"
   }
 
   dimension: uprn_geo {
