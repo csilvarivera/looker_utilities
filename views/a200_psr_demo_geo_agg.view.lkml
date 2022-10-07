@@ -341,7 +341,7 @@ view: a200_psr_demo_geo_agg {
   }
 
   dimension: uprn {
-    type: number
+    type: string
     sql: ${TABLE}.UPRN ;;
     value_format: "0"
   }
