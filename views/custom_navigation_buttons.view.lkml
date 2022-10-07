@@ -21,7 +21,7 @@ view: custom_navigation_buttons {
           <a style="padding: 3px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="https://googlecloud.looker.com/embed/dashboards/1605">Interactive Heatmap</a>
           <a style="padding: 3px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="https://googlecloud.looker.com/embed/dashboards/1606">Predictive Model</a>
           <a style="padding: 3px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="https://googlecloud.looker.com/embed/dashboards/1607">Regional Drilldown</a>
-          <a style="padding: 3px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="https://googlecloud.looker.com/embed/dashboards/1631">Demo 2 Shared PSR Overview</a>
+          <a style="padding: 3px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="https://googlecloud.looker.com/embed/dashboards/1631">Shared PSR - Overview</a>
           <a style="padding: 3px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="https://googlecloud.looker.com/embed/dashboards/1619">Shared PSR - Utilities View</a>
           <a style="padding: 3px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="https://googlecloud.looker.com/embed/dashboards/1625">Shared PSR - Subscriber View</a>
 
