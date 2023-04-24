@@ -25,33 +25,26 @@ persist_with: utilities_looker_default_datagroup
 # Typically, join parameters require that you define the join type, join relationship, and a sql_on clause.
 # Each joined view also needs to define a primary key.
 
-explore: a200_msoa_fuel_poverty_2022{
-  join:  a100_net_income_ahc_2018{
-    type: inner
-    relationship: one_to_one
-    sql_on: ${a200_msoa_fuel_poverty_2022.msoa11_cd} = ${a100_net_income_ahc_2018.msoa_code} ;;
-  }
+explore: a200_energy_bill_forecast_msoa {}
 
-  join:  a200_gas_elec_cons_msoa{
-    type: inner
-    relationship: one_to_many
-    sql_on: ${a200_msoa_fuel_poverty_2022.msoa11_cd} = ${a200_gas_elec_cons_msoa.msoa11_cd};;
-  }
+explore: a200_energy_bill_forecast_rgn {}
 
-  join:  a200_msoa_pop_2020{
-    type: inner
-    relationship: one_to_one
-    sql_on: ${a200_msoa_fuel_poverty_2022.msoa11_cd} = ${a200_msoa_pop_2020.msoa11_cd};;
-  }
+explore: a200_energy_bill_forecast_la {}
 
-  join:  a200_ecp_certificates_msoa_agg{
-    type: inner
-    relationship: one_to_one
-    sql_on: ${a200_msoa_fuel_poverty_2022.msoa11_cd} = ${a200_ecp_certificates_msoa_agg.msoa11_cd};;
-  }
-}
+explore: a300_energy_bill_forecast_msoa_geo {}
 
-# explore: a100_net_income_ahc_2018 {}
+explore: a300_energy_bill_forecast_msoa_geo_v2 {}
+
+explore: a300_linmodel_precalc_ahci_fpov {}
+
+explore: a400_linmodel_precalc_ahci_fpov_geo {}
+
+explore: a200_psr_demo_geo {}
+
+explore: a200_psr_demo_geo_agg {}
+
+explore: custom_navigation_buttons{}
+
 
 # explore: a100_pcd_lsoa_map {}
 

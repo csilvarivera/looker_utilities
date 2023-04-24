@@ -1,5 +1,5 @@
 # The name of this view in Looker is "A200 Energy Bill Forecast Msoa"
-view: a200_energy_bill_forecast_msoa {
+view: a200_energy_bill_forecast_msoa_s {
   # The sql_table_name parameter indicates the underlying database table
   # to be used for all fields in this view.
   sql_table_name: `utilitieshub-demo-sandbox.utilitieshubdataset.a200_energy_bill_forecast_msoa`

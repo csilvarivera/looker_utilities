@@ -1,15 +1,15 @@
-# The name of this view in Looker is "A200 Energy Bill Forecast Msoa"
-view: a200_energy_bill_forecast_msoa {
+# The name of this view in Looker is "A200 Energy Bill Forecast Rgn"
+view: a200_energy_bill_forecast_rgn {
   # The sql_table_name parameter indicates the underlying database table
   # to be used for all fields in this view.
-  sql_table_name: `utilitieshub-demo-sandbox.utilitieshubdataset.a200_energy_bill_forecast_msoa`
+  sql_table_name: `utilitieshub-demo-sandbox.utilitieshubdataset.a200_energy_bill_forecast_rgn`
     ;;
   # No primary key is defined for this view. In order to join this view in an Explore,
   # define primary_key: yes on a dimension that has no repeated values.
 
   # Here's what a typical dimension looks like in LookML.
   # A dimension is a groupable field that can be used to filter query results.
-  # This dimension will be called "Age 0 15" in Explore.
+  # This dimension will be called "Age 16 64" in Explore.
 
   measure: age_0_15 {
     type: sum
@@ -24,33 +24,6 @@ view: a200_energy_bill_forecast_msoa {
   measure: age_65_above {
     type: sum
     sql: ${TABLE}.AGE_65_ABOVE ;;
-
-  }
-
-  measure: pct_pop_16_65 {
-    type: number
-    sql: ${age_16_64}/${all_ages} ;;
-    html: {{msoa11_nm._rendered_value }};;
-  }
-
-  measure: ldn_avg_energy_bill_std_from_mean {
-    type: number
-    sql: ((${avg_annual_bill_energy}-2568.82)/441.026) ;;
-    html: {{msoa11_nm._rendered_value }};;
-
-  }
-
-  measure: ldn_avg_income_after_housing_std_from_mean {
-    type: number
-    sql: ((${net_annual_income_after_housing_costs}-31751.34)/6073.59) ;;
-    # html: {{ladnm._rendered_value }};;
-    value_format: "0.##"
-  }
-
-  measure: ldn_avg_income_after_energy_housing_std_from_mean {
-    type: number
-    sql: ((${income_after_housing_energy}-29181.522)/5937.99) ;;
-    value_format: "0.##"
   }
 
   measure: all_ages {
@@ -72,6 +45,13 @@ view: a200_energy_bill_forecast_msoa {
 
 
   }
+
+  measure: pct_poor_epc_rating {
+    type: number
+    sql: ${rating_agg_poor}/${rating_agg_all} ;;
+    value_format: "0%"
+  }
+
 
   measure: avg_annual_bill_gas {
     type: average
@@ -133,13 +113,6 @@ view: a200_energy_bill_forecast_msoa {
     sql: ${TABLE}.RATING_AGG_POOR ;;
   }
 
-  measure: pct_poor_epc_rating {
-    type: number
-    sql: ${rating_agg_poor}/${rating_agg_all} ;;
-    html: {{msoa11_nm._rendered_value }};;
-    value_format: "0%"
-  }
-
   dimension: rgn11_cd {
     type: string
     sql: ${TABLE}.RGN11CD ;;
@@ -150,30 +123,10 @@ view: a200_energy_bill_forecast_msoa {
     sql: ${TABLE}.RGN11NM ;;
   }
 
-  dimension: ladcd {
-    type: string
-    sql: ${TABLE}.LADCD ;;
-  }
-
-  dimension: ladnm {
-    type: string
-    sql: ${TABLE}.LADNM ;;
-  }
-
-  dimension: msoa11_cd {
-    type: string
-    sql: ${TABLE}.MSOA11CD ;;
-  }
-
-  dimension: msoa11_nm {
-    type: string
-    sql: ${TABLE}.MSOA11NM ;;
-  }
-
-
   dimension: year {
     type: number
     sql: ${TABLE}.YEAR ;;
+    value_format_name: id
   }
 
   measure: count {
