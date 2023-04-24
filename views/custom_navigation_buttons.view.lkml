@@ -29,5 +29,6 @@ view: custom_navigation_buttons {
       </nav>
       </div>
       <div style="background-color: #F6F6F7; height:500px;width:100%"></div>;;
+
   }
 }

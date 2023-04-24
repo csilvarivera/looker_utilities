@@ -431,8 +431,7 @@ view: a200_psr_demo_geo {
     type: location
     sql_latitude: ${lat};;
     sql_longitude: ${lon};;
-    html:{{ formatted_address._rendered_value }}
-      ;;
+
   }
 
 }

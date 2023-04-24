@@ -138,4 +138,5 @@ view: a400_linmodel_precalc_ahci_fpov_geo {
     type: number
     sql: ${TABLE}.YEAR ;;
   }
+
 }

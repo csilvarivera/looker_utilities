@@ -517,6 +517,4 @@ view: a200_psr_demo_geo_agg {
     # html: {{msoa11_nm._rendered_value }};;
     value_format: "0.0"
   }
-
-
 }
